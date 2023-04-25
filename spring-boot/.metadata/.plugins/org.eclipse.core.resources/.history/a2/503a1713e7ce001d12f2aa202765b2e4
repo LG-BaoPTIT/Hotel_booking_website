@@ -1,0 +1,69 @@
+package com.business.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.business.converter.CategoryConverter;
+import com.business.converter.ProductConverter;
+import com.business.dto.CategoryDTO;
+import com.business.dto.ProductDTO;
+import com.business.entity.CategoryEntity;
+import com.business.entity.ProductEntity;
+import com.business.repository.CategoryRepository;
+import com.business.repository.ProductRepository;
+import com.business.service.IProductService;
+
+@Service
+public class ProductService implements IProductService {
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@Autowired
+	private ProductConverter productConverter;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
+	
+	@Autowired
+	private CategoryConverter categoryConverter;
+	
+	@Override
+	public ProductDTO save(ProductDTO productDTO) {
+		ProductEntity productEntity = new ProductEntity();
+		
+		if(productDTO.getId() != null) {
+			ProductEntity existingProduct = productRepository.findOne(productDTO.getId());
+			productEntity = productConverter.toEntity(productDTO,existingProduct);
+		} else {
+			productEntity = productConverter.toEntity(productDTO);
+		}
+		CategoryEntity categoryEntity = categoryRepository.findByCode(productDTO.getCategoryCode());
+		productEntity.setCategory(categoryEntity);
+		productRepository.save(productEntity);
+		return productConverter.toDTO(productEntity);
+	}
+
+	@Override
+	public void delete(long id) {
+		productRepository.delete(id);
+	}
+
+	@Override
+	public List<ProductDTO> getAllProduct() {
+		List<ProductEntity> productsEntity = productRepository.findAll();
+		List<ProductDTO> productsDTO = new ArrayList<>();
+		for(ProductEntity productEntity : productsEntity) {
+			ProductDTO newProductDTO = new ProductDTO();
+			newProductDTO = productConverter.toDTO(productEntity);
+			CategoryDTO newCategory = new CategoryDTO();
+			newCategory = categoryConverter.toDTO(productEntity.getCategory());
+			newProductDTO.setCategoryDTO(newCategory);
+			productsDTO.add(newProductDTO);
+		}
+		return productsDTO;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.business.entity;
+
+public class ProductImageEntity {
+
+}

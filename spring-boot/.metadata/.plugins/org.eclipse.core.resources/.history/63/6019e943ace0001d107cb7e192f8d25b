@@ -1,0 +1,5 @@
+package com.hotel.entity;
+
+public class BaseEntity {
+	
+}

@@ -1,0 +1,69 @@
+package com.business.service.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.business.converter.ProductConverter;
+import com.business.converter.ProductDetailConverter;
+import com.business.dto.ProductDTO;
+import com.business.dto.ProductDetailDTO;
+import com.business.entity.ProductDetailEntity;
+import com.business.entity.ProductEntity;
+import com.business.repository.ProductDetailRepository;
+import com.business.repository.ProductRepository;
+import com.business.service.IProductDetailService;
+
+@Service
+public class ProductDetailService implements IProductDetailService {
+	
+	@Autowired
+	private ProductDetailRepository productDetailRepository;
+	
+	@Autowired
+	private ProductDetailConverter productDetailConverter;
+	
+	@Autowired
+	private ProductRepository productRepository;
+	
+	@Autowired
+	private ProductConverter productConverter;
+
+	@Override
+	public ProductDetailDTO save(ProductDetailDTO productDetailDTO) {
+		ProductDetailEntity productDetailEntity = new ProductDetailEntity();
+		if (productDetailDTO.getId() != null) {
+			ProductDetailEntity existingDetailProduct = productDetailRepository.findOne(productDetailDTO.getId());
+			productDetailEntity = productDetailConverter.toEntity(productDetailDTO, existingDetailProduct);
+		} else {
+			productDetailEntity = productDetailConverter.toEntity(productDetailDTO);
+		}
+		ProductEntity productEntity = productRepository.findByCode(productDetailDTO.getProductCode());
+		productDetailEntity.setProduct(productEntity);
+		productDetailRepository.save(productDetailEntity);
+		return productDetailConverter.toDTO(productDetailEntity);
+	}
+
+	@Override
+	public void delete(long id) {
+		productDetailRepository.delete(id);
+	}
+
+	@Override
+	public List<ProductDetailDTO> getAllProduct() {
+		List<ProductDetailEntity> productsDetailEntity = productDetailRepository.findAll();
+		List<ProductDetailDTO> productsDetailDTO = new ArrayList<>();
+		for(ProductDetailEntity productDetailEntity : productsDetailEntity) {
+			ProductDetailDTO newProductDetailDTO = new ProductDetailDTO();
+			newProductDetailDTO = productDetailConverter.toDTO(productDetailEntity);
+			ProductDTO newProduct = new ProductDTO();
+			newProduct = productConverter.toDTO(productDetailEntity.getProduct());
+			newProductDetailDTO.setProductDTO(newProduct);
+			productsDetailDTO.add(newProductDetailDTO);
+		}
+		return productsDetailDTO;
+	}
+	
+}
