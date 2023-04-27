@@ -1,0 +1,8 @@
+package com.hotel.service.impl;
+
+import com.hotel.service.UserService;
+
+public class UserServiceImpl implements UserService {
+	
+
+}

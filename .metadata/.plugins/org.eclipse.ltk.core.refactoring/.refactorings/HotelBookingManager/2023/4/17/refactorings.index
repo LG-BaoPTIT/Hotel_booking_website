@@ -1,0 +1,10 @@
+1682506211212	Delete elements
+1682507963386	Delete element
+1682516612155	Delete elements
+1682516793575	Delete element
+1682516951648	Delete element
+1682518851857	Delete elements
+1682518880537	Delete element
+1682519378785	Rename type 'AuthEntity'
+1682523534588	Pull up 'repository' to 'UserService'
+1682584373588	Pull up 'hotelRepository' to 'HotelService'

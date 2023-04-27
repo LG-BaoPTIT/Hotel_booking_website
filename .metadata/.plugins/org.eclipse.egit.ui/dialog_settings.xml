@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="1"/>
+	<item key="GitSelectRepositoryPage.lastRepository" value="C:\Users\bao20\Desktop\Java-Springboot\.git"/>
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="bitbucket.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="file://C:\Users\bao20\Desktop\Hotel_booking_website"/>
+		<item value="https://github.com/LG-BaoPTIT/Java-Springboot.git"/>
+	</list>
+	<section name="GitImportWizard">
+	</section>
+</section>

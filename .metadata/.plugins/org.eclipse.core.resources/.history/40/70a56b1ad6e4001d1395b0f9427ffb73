@@ -1,0 +1,67 @@
+package com.hotel.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.hotel.entities.HotelEntity;
+import com.hotel.repositories.HotelRepository;
+import com.hotel.service.HotelService;
+
+@Service
+public class HotelServiceImpl implements HotelService{
+	@Autowired
+	HotelRepository hotelRepository;
+
+	public HotelEntity save(HotelEntity entity) {
+		return hotelRepository.save(entity);
+	}
+
+	public List<HotelEntity> saveAll(List<HotelEntity> entities) {
+		return (List<HotelEntity>)hotelRepository.saveAll(entities);
+	}
+
+	public Optional<HotelEntity> findById(Long id) {
+		return hotelRepository.findById(id);
+	}
+
+	public boolean existsById(Long id) {
+		return hotelRepository.existsById(id);
+	}
+
+	public List<HotelEntity> findAll() {
+		return (List<HotelEntity>)hotelRepository.findAll();
+	}
+
+	public List<HotelEntity> findAllById(List<Long> ids) {
+		return (List<HotelEntity>)hotelRepository.findAllById(ids);
+	}
+
+	public long count() {
+		return hotelRepository.count();
+	}
+
+	public void deleteById(Long id) {
+		hotelRepository.deleteById(id);
+	}
+
+	public void delete(HotelEntity entity) {
+		hotelRepository.delete(entity);
+	}
+
+	public void deleteAllById(List<Long> ids) {
+		hotelRepository.deleteAllById(ids);
+	}
+
+	public void deleteAll(List<HotelEntity> entities) {
+		hotelRepository.deleteAll(entities);
+	}
+
+	public void deleteAll() {
+		hotelRepository.deleteAll();
+	}
+	
+	
+	
+	
+}

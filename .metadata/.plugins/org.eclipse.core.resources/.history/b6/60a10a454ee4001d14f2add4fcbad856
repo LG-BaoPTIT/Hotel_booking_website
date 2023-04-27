@@ -1,0 +1,17 @@
+package com.hotel.converter;
+
+import org.springframework.stereotype.Component;
+
+import com.hotel.dto.UserDTO;
+import com.hotel.entities.HotelEntity;
+import com.hotel.entities.UserEntity;
+
+@Component
+public class UserConverter {
+	
+	public UserEntity toEntity(UserDTO dto) {
+		UserEntity userEntity = new UserEntity();
+		userEntity.setName(dto);
+	}
+	
+}

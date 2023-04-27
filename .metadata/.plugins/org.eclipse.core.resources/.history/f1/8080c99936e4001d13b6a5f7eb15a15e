@@ -1,0 +1,32 @@
+package learncode.spring.model;
+
+import java.io.Serializable;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="user")
+public class User implements Serializable {
+	@Id
+	@Column(name="userName",length = 50)
+	private String userName;
+	
+	@Column(name="passWord",length = 50)
+	private String passWord;
+	
+	@Column(name="fullName",length = 50)
+	private String fullName;
+	
+	@Column(name="age")
+	private Integer age;
+	
+	@Column(name="gender")
+	private boolean gender;
+	public User() {
+		super();
+	}
+	
+}

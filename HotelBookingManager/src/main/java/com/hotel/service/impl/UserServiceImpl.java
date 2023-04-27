@@ -1,0 +1,107 @@
+package com.hotel.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hotel.dto.UserDTO;
+import com.hotel.entities.UserEntity;
+import com.hotel.repositories.UserRepository;
+import com.hotel.service.UserService;
+@Service
+public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	UserRepository repository;
+	
+	@Override
+	public UserEntity save(UserEntity entity) {
+		return repository.save(entity);
+	}
+
+	@Override
+	public List<UserEntity> saveAll(List<UserEntity> entities) {
+		return (List<UserEntity>)repository.saveAll(entities);
+	}
+
+	@Override
+	public Optional<UserEntity> findById(Long id) {
+		return repository.findById(id);
+	}
+
+	@Override
+	public boolean existsById(Long id) {
+		return repository.existsById(id);
+	}
+
+	@Override
+	public List<UserEntity> findAll() {
+		return (List<UserEntity>)repository.findAll();
+	}
+
+	@Override
+	public List<UserEntity> findAllById(List<Long> ids) {
+		return (List<UserEntity>)repository.findAllById(ids);
+	}
+
+	@Override
+	public long count() {
+		return repository.count();
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		repository.deleteById(id);
+	}
+
+	@Override
+	public void delete(UserEntity entity) {
+		repository.delete(entity);
+	}
+
+	
+
+	@Override
+	public void deleteAll(List<UserEntity> entities) {
+		repository.deleteAll(entities);
+	}
+
+	@Override
+	public void deleteAll() {
+		repository.deleteAll();
+	}
+	@Override
+	public void deleteAllById(List<Long> ids) {
+		// TODO Auto-generated method stub
+		repository.deleteAllById(ids);
+		
+	}
+	
+	@Override
+	public UserEntity toEntity(UserDTO dto) {
+		UserEntity entity = new UserEntity();
+		entity.setId(dto.getId());
+		entity.setName(dto.getName());
+		entity.setUsername(dto.getUsername());
+		entity.setPassword(dto.getPassword());
+		entity.setPhone(dto.getPhone());
+		entity.setRole(dto.getRole());
+		return entity;
+	}
+
+	@Override
+	public UserDTO toDTO(UserEntity entity) {
+		UserDTO dto = new UserDTO();
+		dto.setId(entity.getId());
+		dto.setName(entity.getName());
+		dto.setUsername(entity.getUsername());
+		dto.setPassword(entity.getPassword());
+		dto.setPhone(entity.getPhone());
+		dto.setRole(entity.getRole());
+		return dto;
+	}
+
+
+}

@@ -1,0 +1,36 @@
+package com.hotel.api;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+//import com.hotel.converter.UserConverter;
+import com.hotel.dto.*;
+import com.hotel.entities.UserEntity;
+import com.hotel.service.UserService;
+
+@RestController
+@CrossOrigin
+public class UserAPI {
+	@Autowired
+	private UserService userService;
+	
+//	@Autowired
+//	private UserConverter userConverter;
+	
+	@GetMapping(value="/api/users")
+	public List<UserDTO> getAllUser(){
+		List<UserEntity> userEntities = userService.findAll();
+		List<UserDTO> result = new ArrayList<>();
+		for(UserEntity entity : userEntities) {
+			result.add(userService.toDTO(entity));
+		}
+		return result;
+	}
+	
+
+}

@@ -1,0 +1,66 @@
+package com.hotel.service.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hotel.entities.UserEntity;
+import com.hotel.repositories.UserRepository;
+import com.hotel.service.UserService;
+@Service
+public class UserServiceImpl implements UserService {
+	
+	@Autowired
+	UserRepository repository;
+
+	public UserEntity save(UserEntity entity) {
+		return repository.save(entity);
+	}
+
+	public List<UserEntity> saveAll(List<UserEntity> entities) {
+		return (List<UserEntity>)repository.saveAll(entities);
+	}
+
+	public Optional<UserEntity> findById(Long id) {
+		return repository.findById(id);
+	}
+
+	public boolean existsById(Long id) {
+		return repository.existsById(id);
+	}
+
+	public List<UserEntity> findAll() {
+		return (List<UserEntity>)repository.findAll();
+	}
+
+	public Iterable<UserEntity> findAllById(Iterable<Long> ids) {
+		return repository.findAllById(ids);
+	}
+
+	public long count() {
+		return repository.count();
+	}
+
+	public void deleteById(Long id) {
+		repository.deleteById(id);
+	}
+
+	public void delete(UserEntity entity) {
+		repository.delete(entity);
+	}
+
+	public void deleteAllById(Iterable<? extends Long> ids) {
+		repository.deleteAllById(ids);
+	}
+
+	public void deleteAll(Iterable<? extends UserEntity> entities) {
+		repository.deleteAll(entities);
+	}
+
+	public void deleteAll() {
+		repository.deleteAll();
+	}
+	
+}

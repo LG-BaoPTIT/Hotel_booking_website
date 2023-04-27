@@ -1,0 +1,5 @@
+package com.hotel.repositories;
+
+public class HotelRepository {
+
+}
