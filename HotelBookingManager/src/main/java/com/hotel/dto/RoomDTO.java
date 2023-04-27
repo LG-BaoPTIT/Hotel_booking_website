@@ -1,19 +1,16 @@
 package com.hotel.dto;
 
+import java.math.BigDecimal;
 import lombok.*;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class HotelDTO extends AbstractDTO {
+public class RoomDTO extends AbstractDTO{
 	private String name;
 	private String description;
-	private String address;
 	private String imgLink;
-	private Long quantityRoom;
-	private int status;
-	private int rating;
-	private Long price;
-
+	private Long rate;
+	private BigDecimal price;
+	private Long status;
 }

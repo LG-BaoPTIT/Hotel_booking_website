@@ -86,6 +86,7 @@ public class HotelServiceImpl implements HotelService{
 		entity.setQuantityRoom(dto.getQuantityRoom());
 		entity.setStatus(dto.getStatus());
 		entity.setRating(dto.getRating());;
+		entity.setPrice(dto.getPrice());
 		return entity;
 	}
 
@@ -100,6 +101,7 @@ public class HotelServiceImpl implements HotelService{
 		dto.setQuantityRoom(entity.getQuantityRoom());
 		dto.setStatus(entity.getStatus());
 		dto.setRating(entity.getRating());
+		dto.setPrice(entity.getPrice());
 		return dto;
 	}
 	

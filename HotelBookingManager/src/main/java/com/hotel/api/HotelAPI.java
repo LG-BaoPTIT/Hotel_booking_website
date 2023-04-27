@@ -1,5 +1,6 @@
 package com.hotel.api;
 
+import java.awt.PageAttributes.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hotel.dto.HotelDTO;
-import com.hotel.dto.UserDTO;
 import com.hotel.entities.HotelEntity;
-import com.hotel.entities.UserEntity;
 import com.hotel.service.HotelService;
 
 @RestController("")

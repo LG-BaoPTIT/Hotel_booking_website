@@ -30,6 +30,9 @@ public class HotelEntity extends BaseEntity {
 	@Column(name = "rating")
 	private int rating;
 	
+	@Column(name="price")
+	private Long price;
+	
 	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<RoomEntity> rooms = new ArrayList<>();
 	
@@ -51,6 +54,16 @@ public class HotelEntity extends BaseEntity {
 		this.status = status;
 		this.rating = rating;
 		this.rooms = rooms;
+	}
+
+	
+	public Long getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(Long price) {
+		this.price = price;
 	}
 
 
