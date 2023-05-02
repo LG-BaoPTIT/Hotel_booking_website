@@ -23,11 +23,16 @@ import com.hotel.service.UserService;
 import jakarta.servlet.http.HttpSession;
 
 @CrossOrigin
-@RestController
+@Controller
 @RequestMapping("")
-public class MyController {
+public class LoginController {
 	@Autowired
 	UserService userService;
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 	
 	@PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ApiResponse> login(@RequestBody UserDTO loginRequest, 

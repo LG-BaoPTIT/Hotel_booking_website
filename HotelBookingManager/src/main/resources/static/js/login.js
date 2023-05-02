@@ -2,7 +2,6 @@ function validateLoginForm() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     let isValid = true;
-  
     // validate username
     if (username === "") {
       document.getElementById("username-error").textContent = "Please enter your username";

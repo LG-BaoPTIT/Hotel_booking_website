@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" th:href="@{/style/home.css}">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
                 <div class="auth">
                     <a  href="#" class="btn">Trang chủ</a>
                     <a  href="#" class="btn">Đặt phòng</a>
-                    <a  href="./login.html" class="btn">Đăng nhập</a>
+                    <a  th:href="@{/login}" class="btn">Đăng nhập</a>
                 </div>
            </header> 
            <div id="slider">
@@ -140,6 +140,6 @@
         </footer>
 
     </div>
-    <script src="./home.js"></script>
+    <script th:src="@{/js/home.js}"></script>
 </body>
 </html>
