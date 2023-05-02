@@ -10,6 +10,7 @@ import com.hotel.dto.UserDTO;
 import com.hotel.entities.UserEntity;
 import com.hotel.repositories.UserRepository;
 import com.hotel.service.UserService;
+
 @Service
 public class UserServiceImpl implements UserService {
 	
@@ -78,6 +79,15 @@ public class UserServiceImpl implements UserService {
 		repository.deleteAllById(ids);
 		
 	}
+	@Override
+	public boolean checkLogin(String username, String password) {
+		// TODO Auto-generated method stub
+		Optional<UserEntity> user = findByUsername(username);
+		if(user.isPresent() && user.get().getPassword().equals(password)) {
+			return true;
+		}
+		return false;
+	}
 	
 	@Override
 	public UserEntity toEntity(UserDTO dto) {
@@ -102,6 +112,16 @@ public class UserServiceImpl implements UserService {
 		dto.setRole(entity.getRole());
 		return dto;
 	}
+
+	@Override
+	public Optional<UserEntity> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return repository.findByUsername(username);
+	}
+
+
+
+
 
 
 }

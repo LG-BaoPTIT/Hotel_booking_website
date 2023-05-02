@@ -33,6 +33,11 @@ public interface UserService {
 
 	UserEntity save(UserEntity entity);
 	
+	Optional<UserEntity> findByUsername(String username);
+
+	
+	public boolean checkLogin(String username, String password);
+	
 	UserEntity toEntity(UserDTO dto);
 	
 	UserDTO toDTO(UserEntity entity);

@@ -1,6 +1,5 @@
 package com.hotel.api;
 
-import java.awt.PageAttributes.MediaType;
 import java.util.ArrayList;
 import java.util.List;
 

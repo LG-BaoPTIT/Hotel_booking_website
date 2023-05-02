@@ -53,7 +53,7 @@ public class RoomAPI {
 	public ResponseEntity<RoomEntity> updateRoom(@RequestBody RoomDTO model){
 		try {
 			RoomEntity room = roomService.save(roomService.toEntity(model));
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+			return ResponseEntity.ok(room);
 		}catch(RuntimeException ex) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 			
