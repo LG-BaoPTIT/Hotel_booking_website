@@ -34,7 +34,7 @@ public class LoginController {
 		return "login";
 	}
 	
-	@PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/checklogin", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ApiResponse> login(@RequestBody UserDTO loginRequest, 
 			HttpSession session,ModelMap model) {
 	    String username = loginRequest.getUsername();
