@@ -20,6 +20,8 @@ import com.hotel.dto.UserDTO;
 import com.hotel.entities.UserEntity;
 import com.hotel.service.UserService;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @CrossOrigin
@@ -36,7 +38,7 @@ public class LoginController {
 	
 	@PostMapping(value = "/checklogin", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ApiResponse> login(@RequestBody UserDTO loginRequest, 
-			HttpSession session,ModelMap model) {
+			HttpSession session,ModelMap model, HttpServletResponse respon) {
 	    String username = loginRequest.getUsername();
 	    String password = loginRequest.getPassword();
 	    
@@ -48,6 +50,14 @@ public class LoginController {
 	        session.setAttribute("id", user.getId());
 	        ApiResponse response = new ApiResponse(true, "Đăng nhập thành công",userService.toDTO(user));
 	        System.out.println("ok");
+	        
+	     // Lưu thông tin người dùng vào cookie
+	        Cookie usernameCookie = new Cookie("username", username);
+	        Cookie idCookie = new Cookie("id", String.valueOf(user.getId()));
+	        usernameCookie.setMaxAge(3600); // set thời gian sống của cookie (tính theo giây)
+	        idCookie.setMaxAge(3600);
+	        respon.addCookie(usernameCookie);
+	        respon.addCookie(idCookie);
 	        return ResponseEntity.ok(response);
 	    } else {
 	        System.out.println("false");
@@ -55,5 +65,7 @@ public class LoginController {
 	         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
 	    }
 	}
+	
+	
 
 }

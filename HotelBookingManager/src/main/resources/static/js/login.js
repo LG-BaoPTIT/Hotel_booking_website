@@ -45,7 +45,7 @@ async function validateLoginForm(e) {
 	const response = await fetch("http://localhost:8080/checklogin", fetchOptions);
 	
 	if (response.ok) { 
-		console.log(6)
+		localStorage.setItem('oke',response.ok)
 		 window.location.href = "http://localhost:8080/home";
 		}		
 	else{

@@ -10,6 +10,48 @@ function getHotels(){
         })
 }
 //${}
+const remove = () => {
+	localStorage.clear('oke');
+	window.location.reload();
+	
+}
+
+const check = () => {
+	const login = document.querySelector('.bb')
+	const auth = document.querySelector('.auth')
+
+
+	if(localStorage.getItem('oke')) {
+		return auth.innerHTML = `    <a  href="#" class="btn">Trang chủ</a>
+                   					 <a  href="#" class="btn">Đặt phòng</a>
+                   					  <div class="wrapper">
+                        <span class="userName">Xin chào Bee 
+                            <i class="fa-solid fa-caret-down" style="color: orange;"></i>
+                        </span>
+                        <ul class="supnav">
+                           <li class="item1">
+                            <a class="itemLink">
+                                Thông tin cá nhân 
+                           </a>
+                        </li>
+                        <li class="item1">
+                           <a  href="/logout" class="itemLink" onclick="remove()">Đăng xuất</a>
+                        </ul>
+                    </div>
+                   
+                </div>`
+                    				
+	}
+	return auth.innerHTML  = ` <a  href="#" class="btn">Trang chủ</a>
+                   					 <a  href="#" class="btn">Đặt phòng</a>
+                    				<a  href="/login" class="btn">Đăng nhập</a>
+                    				<a  href="#" class="btn">Đăng ký</a>`;
+	
+	
+	
+}
+
+
 function renderHotels(hotels){
     var listHotelBlock =document.querySelector('.listRoom');
     var html = hotels.map(function(hotel){
@@ -54,6 +96,7 @@ function renderHotels(hotels){
  
 }
 function start(){
+	check();
     getHotels();
 
 }

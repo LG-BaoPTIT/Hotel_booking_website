@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+.hidden {
+	display: none;
+}
+
 #wrapper {
   
 }
@@ -78,10 +82,11 @@ html {
     font-weight: 800;
     text-decoration: none;
     color: #000;
+    cursor: pointer;
 
 }
 .auth{
-
+ display: flex !important;
 }
 .slider {
     margin-top: 90px;
@@ -322,6 +327,60 @@ html {
     color: #737373;
 }
 
+
+.userName{
+    display: block;
+    position: relative;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+
+}
+.wrapper:hover .supnav {
+    display: inline-block!important;
+}
+
+.supnav{
+    border-top: 6px solid transparent;
+    border-radius: 4px;
+    height: 90px;
+    z-index: 1;
+    position: absolute;
+    list-style: none;
+    display: none;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,.15)!important;
+
+    top: 70%;
+
+}
+.supnav::before {
+content: '';
+    display: block;
+    position: absolute;
+    background-color: transparent;
+    height: 10px;
+    width: 100%;
+    top: -16px;
+    z-index: 2;
+}
+.item1{
+    height: 30px;
+    border-bottom: 1px solid orange;
+
+}.itemLink{
+    display: block;
+    height: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
 
 
 
