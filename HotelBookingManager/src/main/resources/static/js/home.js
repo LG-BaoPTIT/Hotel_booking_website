@@ -15,27 +15,47 @@ const remove = () => {
 	window.location.reload();
 	
 }
+//lấy cookie theo key
+function getCookie(name) {
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+    if (cookie.indexOf(name) == 0) {
+      return decodeURIComponent(cookie.substring(name.length + 1));
+    }
+  }
+  return null;
+}
 
+
+var myCookie = getCookie('name');
+if (myCookie) {
+  console.log(myCookie);
+}
 const check = () => {
 	const login = document.querySelector('.bb')
 	const auth = document.querySelector('.auth')
+	
 
 
 	if(localStorage.getItem('oke')) {
 		return auth.innerHTML = `    <a  href="#" class="btn">Trang chủ</a>
                    					 <a  href="#" class="btn">Đặt phòng</a>
                    					  <div class="wrapper">
-                        <span class="userName">Xin chào Bee 
+                        <span class="userName">Xin chào ${getCookie('name')}
                             <i class="fa-solid fa-caret-down" style="color: orange;"></i>
                         </span>
                         <ul class="supnav">
                            <li class="item1">
-                            <a class="itemLink">
-                                Thông tin cá nhân 
-                           </a>
-                        </li>
-                        <li class="item1">
-                           <a  href="/logout" class="itemLink" onclick="remove()">Đăng xuất</a>
+                           		<a class="itemLink">Thông tin cá nhân </a>
+                           </li>   
+                            <li class="item1">
+                           		<a class="itemLink">Đổi mật khẩu </a>
+                           </li> 
+           	
+                           <li class="item1">
+                           		<a  href="/logout" class="itemLink" onclick="remove()">Đăng xuất</a>
+                           </li>
                         </ul>
                     </div>
                    

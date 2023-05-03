@@ -54,10 +54,13 @@ public class LoginController {
 	     // Lưu thông tin người dùng vào cookie
 	        Cookie usernameCookie = new Cookie("username", username);
 	        Cookie idCookie = new Cookie("id", String.valueOf(user.getId()));
+	        Cookie nameCookie = new Cookie("name", String.valueOf(user.getName()));
 	        usernameCookie.setMaxAge(3600); // set thời gian sống của cookie (tính theo giây)
 	        idCookie.setMaxAge(3600);
+	        nameCookie.setMaxAge(3600);
 	        respon.addCookie(usernameCookie);
 	        respon.addCookie(idCookie);
+	        respon.addCookie(nameCookie);
 	        return ResponseEntity.ok(response);
 	    } else {
 	        System.out.println("false");

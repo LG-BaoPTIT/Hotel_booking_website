@@ -345,7 +345,7 @@ html {
 .supnav{
     border-top: 6px solid transparent;
     border-radius: 4px;
-    height: 90px;
+
     z-index: 1;
     position: absolute;
     list-style: none;
