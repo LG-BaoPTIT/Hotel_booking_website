@@ -1,5 +1,0 @@
-package com.business.repository;
-
-public interface MemoryRepository {
-
-}

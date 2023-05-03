@@ -1,5 +1,0 @@
-package com.business.service;
-
-public interface IMemoryService {
-	MemoryDTO save(MemoryDTO memoryDTO);
-}

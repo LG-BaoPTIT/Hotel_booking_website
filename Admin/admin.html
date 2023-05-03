@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>admin</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="/styles/admin.css" type="text/css">
+        <link rel="stylesheet" href="/styles/base.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/font/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.css">
+    </head>
+    <body>
+        <div class="main">
+<!-- ------------------------------------------header--------------------------------------------------------------------- -->
+            <div class="main_header">
+                <a  href="admin.html" class="main_header_logo"><p>Travelcon</p></a>
+            </div>
+<!-- ----------------------------------------content----------------------------------------------------------- -->
+            <div class="main_content">
+<!-- --------------------------------------Admin------------------------------------------------ -->
+                <div class="main_content_admin"> 
+                    <div class="content_admin_img">
+                        <div class="content_admin_img-img">
+                            <div class="admin_img">
+                                <a href="#"><img src="styles/img/banner/banner3.jpg" alt=""></a>
+                                <div class="content_admin_img-camera">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                            </div>
+                            <p class="admin_name">Admin</p>
+                        </div>
+                    </div>
+                    <div class="content_admin_funtion">
+                        <a href="/admin.html">
+                            <div class="admin_funtion_item">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <p>Quản lý phòng</p>
+                            </div>
+                        </a>
+                        <a href="/payment.html">                            
+                            <div class="admin_funtion_item">
+                                <i class="fa-solid fa-house" style="font-size: 17px;"></i>
+                                <p>Quản lý đặt chỗ của khách</p>
+                            </div>
+                        </a>
+                        <a href="/account.html">                            
+                            <div class="admin_funtion_item">
+                                <i class="fa-solid fa-gear"></i>
+                                <p>Quản lý tài khoản</p>
+                            </div>
+                        </a>
+                        <a href="#">                           
+                            <div class="admin_funtion_item">
+                                <i class="fa-solid fa-message"></i>
+                                <p>Tin nhắn</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+<!-- --------------------------------------------------------Manage------------------------------------------------ -->
+                <div class="main_content_manage">
+                    <div class="content_manage_header">
+                        <a href="#">
+                            <div class="manage_header_back">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </div>
+                        </a>
+                        <div class="manage_header_addroom">
+                            <div class="manage_header_addroom_left">
+                                <p>Quản lý phòng</p>
+                            </div>
+                            <div class="manage_header_addroom_right">
+                                <button class="addroom_right_button js-addformbutton">
+                                    Thêm mới phòng
+                                    <i class="fa-regular fa-calendar-plus"></i>
+                                </button>
+<!-- -----------------------------------------------------form add room ------------------------------------------------------ -->
+                                <div class="manage_header_addroom_form js-form_add">
+                                    <div class="addroom_form">
+                                        <div class="manage_header_addroom_form_front">
+                                            <div class="addroom_form_item">
+                                                <p>Tên phòng</p>
+                                                <input type="text" placeholder="Tên phòng">
+                                            </div>
+                                            <div class="addroom_form_item">
+                                                <p>Mô tả phòng</p>
+                                                <input type="text" placeholder="Mô tả phòng">
+                                            </div>
+                                            <div class="addroom_form_item">
+                                                <p>Giá</p>
+                                                <input type="text" placeholder="Giá">
+                                            </div>
+                                            <div class="add_room_form_item-addimg">
+                                                <div class="addimg_in">
+                                                    <i class="fa-solid fa-image"></i>
+                                                    <span>Chọn hình ảnh</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="manage_header_addroom_form_back">
+                                            <a href="#">
+                                                <div class="addroom_form_submit_add">
+                                                    <p>Thêm</p>
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="addroom_form_submit_cancel js-cancelbutton">
+                                                    <p>Đóng</p>
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    <!-- ------------------------------------------Các item ----------------------------------------------- -->
+                    <div class="content_manage_content">
+                        <div class="content_manage_container">
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>
+                            <div class="manage_content_item">
+                                <div class="manage_content_item_left">
+                                    <img src="styles/img/iphon12.webp" alt="">
+                                    <div class="content_item_left_infomation">
+                                        <p class="item_left_information_1">Luxstay Villa</p>
+                                        <p class="item_left_information_2">Phòng hai giường đôi</p>
+                                        <p class="item_left_information_3">Thêm phòng - 24/07/2020</p>
+                                    </div>
+                                </div>
+                                <div class="manage_content_item_right">
+                                    <div class="item_right_icon">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                        <i class="fa-solid fa-trash"></i>
+                                    </div>
+                                    <p class="item_right_cost">1250000 đ</p>
+                                </div>                  
+                            </div>                                       
+                        </div>
+                    </div>  
+                </div>  
+<!-- -------------------------------------------------Notification ------------------------------------------------------------------------- -->
+                <div class="main_content_information">
+                    <div class="main_content_information_front">
+
+                        <div class="main_content_information_header">
+                            <div class="content_information_header_notification">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                        </div>                                           
+                        <p class="title">Liên kết với mạng xã hội.</p>
+                        <span class="letter">Bạn có thể liên kết với mạng xã hội
+                            để có thể chia sẻ những chuyến đi 
+                            thú vị của mình
+                        </span>
+                        <p class="link">www.travelcon.com/share-social</p>
+                        <div class="social_icon">
+                            <div class="social_icon_item">
+                                <a href="#"><i class="fa-brands fa-google-plus"></i></a>
+                                <p class="fontsite">Google</p>
+                            </div>
+                            <div class="social_icon_item_facebook">
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <p class="fontsite">Facebook</p>
+                            </div>
+                            <div class="social_icon_item_twitter">
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                <p class="fontsite">Twitter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_content_information_bottom">
+
+                        <div class="main_content_information_header">
+                            <div class="content_information_header_notification">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+                        </div>
+                        <p class="title">Những câu hỏi thường gặp</p>
+                        <span class="letter">- Làm sao để đặt phòng trên Travelcon? </span><br>
+                        <span class="letter">- Hướng dẫn thanh toán bằng thẻ ngân hàng. </span><br>
+                        <span class="letter">- Tôi muốn nhận thông báo về khuyến mãi. </span>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <script src="javascript/admin.js"></script>
+    </body>
+</html>
