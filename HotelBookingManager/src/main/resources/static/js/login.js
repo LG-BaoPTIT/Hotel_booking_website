@@ -1,8 +1,12 @@
-async function validateLoginForm() {
+async function validateLoginForm(e) {
+	const form = document.getElementById("login-form");
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     let isValid = true;
-  
+  	 form.addEventListener('submit',(e) =>{
+       
+        e.preventDefault();
+    })
     // validate username
     if (username === "") {
       document.getElementById("username-error").textContent = "Please enter your username";
@@ -40,11 +44,14 @@ async function validateLoginForm() {
 
 	const response = await fetch("http://localhost:8080/checklogin", fetchOptions);
 	
-	if (!response.ok) {
-		const errorMessage = await response.text();
-		throw new Error(errorMessage);
-		}
-		return response.json();
+	if (response.ok) { 
+		console.log(6)
+		 window.location.href = "http://localhost:8080/home";
+		}		
+	else{
+		document.getElementById("password-error").textContent = "Sai thông tin đăng nhập!";
+	}
+		
         
       } 
     
