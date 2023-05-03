@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>signup</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+	<link rel="stylesheet" th:href="@{/style/signup.css}">
+	<link rel="stylesheet" th:href="@{/style/base.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{assets/fonts/fontawesome-free-6.1.1-web/css/all.css}">
+	<script th:src="@{/js/register.js}"></script>
+</head>
+
+<body>
+	<div class="formlogin_main">
+
+		<div class="formlogin_form_main">
+			<div class="formlogin_form_left">
+				<div class="formlogin_form_left_box">
+
+					<div class="formlogin_form_left_header">
+						<p>Đăng nhập</p>
+					</div>
+					<div class="formlogin_form_left_main">
+						<div class="form_left_main_title">
+							<p>Chào mừng bạn đến với hệ thống đặt phòng của Travelcon.</p>
+
+						</div>
+						<div class="form_left_main_title2">
+							<p>Bạn sẽ đăng ký tài khoản tại đây.</p>
+						</div>
+						<form class="form_left_main_input">
+							<div class="form_left_main_input-item">
+								<label for="fullname">Họ và Tên</label>
+								<input type="text" id="fullname" name="fullname" placeholder="Họ và Tên" required>
+							</div>
+							<div class="form_left_main_input-item">
+								<label for="username">Tên tài khoản</label>
+								<input type="email" id="username" name="username" placeholder="abc@gmail.com" required>
+							</div>
+							<div class="form_left_main_input-item">
+								<label for="password">Mật khẩu</label>
+								<input type="password" id="password" name="password"  placeholder="*******"
+									required>
+								<span id="password-error1" class="text-danger" style="color: red;"></span>
+							</div>
+							<div class="form_left_main_input-item">
+								<label for="confirm_password">Xác thực lại mật khẩu</label>
+								<input type="password" id="confirm_password" name="confirm_password"  placeholder="*******"
+									 required>
+								<span id="password-error2" class="text-danger" style="color: red;"></span>
+							</div>
+							  <button type="submit" class="form_left_main_button_submit" onclick= 'validateRegisterForm()'>
+								  <a href="#">
+										<p class="btnSigUp">Đăng ký</p>
+								</a>
+							</button>
+
+						</form>
+
+
+
+						<div class="form_left_main_input_confirm">
+							<div class="remember_login">
+
+								<label>Bạn đã có tài khoản?Đăng nhập</label>
+							</div>
+							<a class="link_login" href="/login">Tại đây</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="formlogin_form_right">
+				<div class="formlogin_form_right_img">
+					<div class="formlogin_form_right_box">
+						<p class="login_form_right_title">Hãy trở thành đối tác của Travelcon!</p>
+						<div class="form_right_item">
+							<i class="fa-solid fa-check"></i>
+							<p>Tăng doanh thu</p>
+						</div>
+						<div class="form_right_item">
+							<i class="fa-solid fa-check"></i>
+							<p>Tìm kiếm nguồn khách hàng</p>
+						</div>
+						<div class="form_right_item">
+							<i class="fa-solid fa-check"></i>
+							<p>Miễn phí tạo đăng ký</p>
+						</div>
+						<div class="form_right_item">
+							<i class="fa-solid fa-check"></i>
+							<p>Hỗ trợ 24/7 qua điện thoại hoặc email</p>
+						</div>
+						<div class="form_right_item">
+							<i class="fa-solid fa-check"></i>
+							<p>Đặt quy định riêng của Quý vị cho khách </p>
+						</div>
+						<div class="form_right_item">
+							<i class="fa-solid fa-check"></i>
+							<p>Đồng bộ hóa lịch với các trang web khác</p>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+</body>
+
+</html>

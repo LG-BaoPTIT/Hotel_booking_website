@@ -27,11 +27,6 @@ function getCookie(name) {
   return null;
 }
 
-
-var myCookie = getCookie('name');
-if (myCookie) {
-  console.log(myCookie);
-}
 const check = () => {
 	const login = document.querySelector('.bb')
 	const auth = document.querySelector('.auth')
@@ -65,7 +60,7 @@ const check = () => {
 	return auth.innerHTML  = ` <a  href="#" class="btn">Trang chủ</a>
                    					 <a  href="#" class="btn">Đặt phòng</a>
                     				<a  href="/login" class="btn">Đăng nhập</a>
-                    				<a  href="#" class="btn">Đăng ký</a>`;
+                    				<a  href="/register" class="btn">Đăng ký</a>`;
 	
 	
 	
