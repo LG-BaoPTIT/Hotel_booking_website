@@ -1,4 +1,4 @@
-function validateLoginForm() {
+async function validateLoginForm() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     let isValid = true;
@@ -27,21 +27,24 @@ function validateLoginForm() {
         };
     
         //make a POST request to the server using fetch API
-        fetch("http://localhost:8080/checklogin", {
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: JSON.stringify(formData), // body data type must match "Content-Type",
-          cache: 'no-cache'
-        })
-        .then(function(response){
-          return response.json();
-        })
-        .then(function(response){
-          console.log(hotels);
-        })
+        
+        //
+        const fetchOptions = {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			Accept: "application/json",
+		},
+		body: JSON.stringify(formData),
+	};
+
+	const response = await fetch("http://localhost:8080/checklogin", fetchOptions);
+	
+	if (!response.ok) {
+		const errorMessage = await response.text();
+		throw new Error(errorMessage);
+		}
+		return response.json();
         
       } 
     
