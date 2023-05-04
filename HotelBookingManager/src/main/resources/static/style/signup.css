@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 .formlogin_main{
-    position: fixed;
+  
     top:0;
     left: 0;
     right: 0;
@@ -19,7 +19,7 @@
     
 }
 .formlogin_form_main{
-    width: 60%;
+
     border-radius: 4px;
     background-color: white;
     display: flex;
