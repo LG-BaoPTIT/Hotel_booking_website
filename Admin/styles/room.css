@@ -29,8 +29,7 @@
 }
 .main_content_admin{
     width: 25%;
-    margin-top: 64px;
-    
+    margin-top: 64px; 
     top:68px;
 }
 .content_admin_img{
@@ -61,10 +60,11 @@
     bottom: 8px;
 }
 .admin_name{
-    font-size: 28px;
-    margin: 20px 0 0 0;
+    font-size: 32px;
+    margin: 20px 0 0 10px;
     text-align: center;
     font-weight: bold;
+    line-height: 1.2;
 }
 .main_content_information{
     width: 15%;
@@ -83,12 +83,12 @@
 }
 .admin_funtion_item i{
     color: var(--primary-color);
-    font-size: 20px;
+    font-size: 24px;
 }
 .admin_funtion_item p{
     display: inline-block;
-    font-size: 20px;
-    margin: 8px 0 10px 42px;
+    font-size: 16px;
+    margin: 8px 0 10px 0px;
     font-weight: bold;
 }
 /* ---------------------------- */
@@ -276,25 +276,31 @@
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
+    margin-top: 16px;
     
 }
 .manage_content_item_left{
     display: flex;
+    width: 70%;
+   
 }
 .manage_content_item_left img{
-    width: 80px;
-    height: 90px;
+    width: 200px;
+    height: 200px;  
+    border-radius: 4px;
 }
 .content_item_left_infomation{
-    margin-top: 12px;
+    margin: 12px 0 0 12px;
     line-height: 24px;
 }
 .item_left_information_1{
     font-size: 24px;
     font-weight: bold;
+    margin: 12px 0 12px 0;
 }
 .item_left_information_2{
     font-size: 16px;
+    width: 90%;
 }
 .item_left_information_3{
     font-size: 14px;
@@ -316,6 +322,7 @@
 .item_right_cost{
     font-size: 26px;
     font-weight: bold;
+    color: red;
     margin: 36px 32px 0 0;
 }
 .item_right_icon{
@@ -397,116 +404,40 @@
     margin-right: 24px;
     
 }
-.item_right_cost_box{
-    
-}
-/* --------------------------------payment------------------------------ */
-.payment_manage_content_item{
-    display: flex;
-    border-bottom: 3px solid var(--primary-color);
-    margin: 106px 0 0 2px;
-    flex-wrap: wrap;
-}
-.payment_manage_content_img img{
-    width: 80px;
-    height: 60px;
-}
-.payment_inforroom_title{
-    display: flex;
-
-}
-.up{
-    margin: 0 0 8px 8px;
-}
-.payment_manage_content_inforroom{
-    margin-left: 16px;
-}
-.title_left{
-    font-size: 20px;
-    font-weight: bold;
-    display: inline;
-}
-.title_right{
-    font-size: 14px;
-    color: red;
-    font-weight: bold;
-    display: inline;
-}
-.inforroom_1{
-    font-size: 16px;
-    margin-bottom: 32px;
-}
-.inforroom_2{
-    font-size: 16px;
-    color: var(--primary-color);
-    margin-bottom: 32px;
-}
-.payment_manage_content_inforcustomer{
-    margin:0 32px 0 18px;
-
-}
-.payment_manage_content_inforcustomer label{
-    font-size: 18px;
-    color:rgb(120, 119, 119);
-
-}
-.payment_manage_content_inforcustomer p{
-    font-size: 18px;
-    margin:32px 0 32px 0;  
-}
-.payment_content_manage_content{
-    margin-top: 32px;
-    width: 94%;
-    margin-left: 62px;
-}
-.payment_manage_content_accept{
-    margin-left: 26px;
-}
-.payment_manage_content_accept button{
-    width: 60px;
-    font-size: 18px;
-    padding: 8px 0 8px 0;
-    border-radius: 4px;
-    border: none;
+.item_right_icon_orderroom button{
     background-color: var(--primary-color);
-    color:white;
+    width: 100px;
+    height: 42px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
 }
-.payment_manage_content_accept button:hover{
-    opacity: 0.6;
+.item_right_icon_orderroom p{
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    line-height: 42px;
 }
-/* -----------------------------------------admin--------------------------------------------------- */
-.account_item_name{
-    font-size: 24px;
+.manage_content_item_right_box label {
+    font-size: 20px;
+
 }
-.account_item{
-    display: flex;
-    border-radius: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    margin:0 20px 28px 0;
-    width: 45%;
+.manage_content_item_right_box p{
+    display: inline;
+    margin-left: 4px;
 }
-.account_item_box{
-    display: flex;
-    flex-wrap: wrap; 
-    margin-left:56px;
-    width: 100%;
+.manage_content_item_right_box{
+    margin-top: 32px;
 }
-.account_content_manage_content{
-    display: flex;
-    margin-top: 102px;
+.item_right_icon_orderroom{
+    margin-top: 28px;
 }
-.account_item_left p{
-    font-size: 24px;
-    margin: 24px 18px 32px 24px;
+.manage_content_item_right{
+
 }
-.account_item_left{
-    width:60%;
+.item_right_icon_orderroom a{
+    text-decoration: none;
 }
-.account_icon{
-    margin-right: 32px;
-    margin-top: 18px;
-    width: 40%;
-}
-.item_right_icon_box{
-    float: right;
+.item_left_information_2 .fa-star{
+    color: var(--primary-color);
 }
