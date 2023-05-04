@@ -108,13 +108,20 @@
     display: flex;
   	align-items: center;
   	margin-top: 10px;
+  	justify-content: space-between
+  	;
 
 }
+.form_left_main_input_confirm a {
+	font-size: 13px;
+}
+
 .form_left_main_button{
     margin-top: 26px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+   
     
 }
 .form_left_main_button a{
@@ -141,7 +148,7 @@
     text-align: center;
     line-height: 48px;
     color: white;
-    margin-top: 12px;
+   
 }
 .form_left_main_button_item-with p{
     display: inline;
