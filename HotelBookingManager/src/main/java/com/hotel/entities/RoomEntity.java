@@ -30,9 +30,6 @@ public class RoomEntity extends BaseEntity {
 	private Long status;
 	
 
-	@ManyToOne
-	@JoinColumn(name = "hotel_id", referencedColumnName = "id")
-	private HotelEntity hotel;
 	
 	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderDetailEntity> orderDetails = new ArrayList<>();
@@ -42,7 +39,7 @@ public class RoomEntity extends BaseEntity {
 	}
 	
 	public RoomEntity(String name, String description, String imgLink, Long rate, BigDecimal price, Long status,
-			HotelEntity hotel, List<OrderDetailEntity> orderDetails) {
+			List<OrderDetailEntity> orderDetails) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -50,7 +47,7 @@ public class RoomEntity extends BaseEntity {
 		this.rate = rate;
 		this.price = price;
 		this.status = status;
-		this.hotel = hotel;
+		
 		this.orderDetails = orderDetails;
 	}
 
@@ -104,13 +101,6 @@ public class RoomEntity extends BaseEntity {
 		this.status = status;
 	}
 
-	public HotelEntity getHotel() {
-		return hotel;
-	}
-
-	public void setHotel(HotelEntity hotel) {
-		this.hotel = hotel;
-	}
 
 	public List<OrderDetailEntity> getOrderDetails() {
 		return orderDetails;

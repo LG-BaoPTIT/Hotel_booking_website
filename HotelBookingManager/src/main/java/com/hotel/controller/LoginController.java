@@ -60,7 +60,6 @@ public class LoginController {
 	        idCookie.setMaxAge(3600);
 	        nameCookie.setMaxAge(3600);
 	        roleCookie.setMaxAge(3600);
-	        
 	        respon.addCookie(usernameCookie);
 	        respon.addCookie(idCookie);
 	        respon.addCookie(nameCookie);

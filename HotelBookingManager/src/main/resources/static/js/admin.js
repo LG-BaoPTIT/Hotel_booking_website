@@ -101,7 +101,7 @@ function getHotels(){
 //render ra danh sách khách sạn;
 function renderHotels(hotels){
     var listHotelBlock =document.querySelector('.content_manage_content');
-    console.log(hotels);
+  
     var html = hotels.map(function(hotel){
         return `
                         <div class="content_manage_container">

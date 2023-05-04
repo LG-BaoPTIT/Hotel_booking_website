@@ -1,4 +1,4 @@
-var hotelAPI = "http://localhost:8080/api/hotels";
+var hotelAPI = "http://localhost:8080/api/rooms";
 //
 function getHotels(){
     fetch(hotelAPI)
