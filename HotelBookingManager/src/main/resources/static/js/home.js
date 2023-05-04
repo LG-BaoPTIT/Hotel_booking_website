@@ -34,7 +34,7 @@ const check = () => {
 
 
 	if(localStorage.getItem('oke')) {
-		return auth.innerHTML = `    <a  href="#" class="btn">Trang chủ</a>
+		return auth.innerHTML = `    <a  href="/home" class="btn">Trang chủ</a>
                    					 <a  href="#" class="btn">Đặt phòng</a>
                    					  <div class="wrapper">
                         <span class="userName">Xin chào ${getCookie('name')}

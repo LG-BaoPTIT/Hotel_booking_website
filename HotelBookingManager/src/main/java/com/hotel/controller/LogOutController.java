@@ -19,12 +19,14 @@ public class LogOutController {
 		Cookie usernameCookie = new Cookie("username", null);
 	    Cookie idCookie = new Cookie("id", null);
 	    Cookie nameCookie = new Cookie("name", null);
+	    Cookie roleCookie = new Cookie("role", null);
 	    usernameCookie.setMaxAge(0);
 	    idCookie.setMaxAge(0);
 	    nameCookie.setMaxAge(0);
 		respon.addCookie(usernameCookie);
 		respon.addCookie(idCookie);
 		respon.addCookie(nameCookie);
+		respon.addCookie(roleCookie);
 		return "home";
 	}
 }

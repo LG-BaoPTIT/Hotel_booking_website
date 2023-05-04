@@ -36,6 +36,7 @@ public class HotelAPI {
 		for(HotelEntity entity : hotelEntities) {
 			result.add(hotelService.toDTO(entity));
 		}
+		System.out.print("okok");
 		return result;
 	}
 	

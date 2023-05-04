@@ -55,12 +55,17 @@ public class LoginController {
 	        Cookie usernameCookie = new Cookie("username", username);
 	        Cookie idCookie = new Cookie("id", String.valueOf(user.getId()));
 	        Cookie nameCookie = new Cookie("name", String.valueOf(user.getName()));
+	        Cookie roleCookie = new Cookie("role", String.valueOf( user.getRole()));
 	        usernameCookie.setMaxAge(3600); // set thời gian sống của cookie (tính theo giây)
 	        idCookie.setMaxAge(3600);
 	        nameCookie.setMaxAge(3600);
+	        roleCookie.setMaxAge(3600);
+	        
 	        respon.addCookie(usernameCookie);
 	        respon.addCookie(idCookie);
 	        respon.addCookie(nameCookie);
+	        respon.addCookie(roleCookie);
+	        
 	        return ResponseEntity.ok(response);
 	    } else {
 	        System.out.println("false");
