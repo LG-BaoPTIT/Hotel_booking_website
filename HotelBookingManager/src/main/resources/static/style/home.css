@@ -131,7 +131,7 @@ html {
     margin-top: 20px;
     flex-wrap: wrap;
     float: left;
-    justify-content: space-around;
+    justify-content: space-between;
  
 
 }
@@ -139,7 +139,7 @@ html {
     width: 230px;
     height: 400px;
     margin-left: 35px;
-    margin-right: 35px;
+   
 }
 .item a {
     text-decoration: none;

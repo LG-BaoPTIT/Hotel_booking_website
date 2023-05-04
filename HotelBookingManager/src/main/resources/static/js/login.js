@@ -1,5 +1,5 @@
 async function validateLoginForm(e) {
-	const form = document.getElementById("login-form");
+	const form = document.getElementById("form-login");
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     let isValid = true;
@@ -9,7 +9,7 @@ async function validateLoginForm(e) {
     })
     // validate username
     if (username === "") {
-      document.getElementById("username-error").textContent = "Please enter your username";
+      document.getElementById("username-error").textContent = "Hãy nhập tên tài khoản.";
       isValid = false;
     } else {
       document.getElementById("username-error").textContent = "";
@@ -17,7 +17,7 @@ async function validateLoginForm(e) {
   
     // validate password
     if (password === "") {
-      document.getElementById("password-error").textContent = "Please enter your password";
+      document.getElementById("password-error").textContent = "Hãy nhập mật khẩu.";
       isValid = false;
     } else {
       document.getElementById("password-error").textContent = "";
@@ -49,7 +49,7 @@ async function validateLoginForm(e) {
 		 window.location.href = "http://localhost:8080/home";
 		}		
 	else{
-		document.getElementById("password-error").textContent = "Sai thông tin đăng nhập!";
+		document.getElementById("login-fail").textContent = "Sai thông tin đăng nhập!";
 	}
 		
         

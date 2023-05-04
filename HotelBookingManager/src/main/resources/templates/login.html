@@ -3,6 +3,7 @@
     <head>
         <title>login</title>
         <meta charset="utf-8">
+         <script th:src="@{/js/login.js}"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   		<link rel="stylesheet" th:href="@{/style/signup.css}">
 	<link rel="stylesheet" th:href="@{/style/base.css}">
@@ -29,15 +30,19 @@
                                 </div>
                                 <div class="form_left_main_title2">
                                     <p>Bạn sẽ đăng nhập tài khoản tại đây.</p>
+                                    <span id="login-fail" class="text-danger" style="color: red; font-size: 50%;"></span>
                                 </div>
                                 <form id="form-login">
                                     <div class="form_left_main_input-item">
                                       <p for="username">Tên tài khoản</p>
                                       <input type="email" id="username" name="username" placeholder="abc@gmail.com">
+                                      <span id="username-error" class="text-danger" style="color: red;"></span>
                                     </div>
                                     <div class="form_left_main_input-item">
                                       <p for="password">Mật khẩu</p>
                                       <input type="password" id="password" name="password" placeholder="***************">
+                                      <span id="password-error" class="text-danger"style="color: red;"></span>
+                                      
                                     </div>
                                   </form>
                                 <div class="form_left_main_input_confirm">
@@ -49,7 +54,7 @@
                                 </div>
                                 <div class="form_left_main_button">
 									<div>
-									<button class="loginBtn" style="    cursor: pointer;
+									<button onclick= 'validateLoginForm()' class="loginBtn" style="    cursor: pointer;
 									                                    outline: none;
 									                                    border-color: transparent;
 									                                    background-color: white;" type="submit" form="form-login" href="#">
