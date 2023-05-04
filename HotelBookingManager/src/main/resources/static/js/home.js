@@ -69,10 +69,11 @@ const check = () => {
 
 function renderHotels(hotels){
     var listHotelBlock =document.querySelector('.listRoom');
+    console.log(hotels);
     var html = hotels.map(function(hotel){
         return `
         <li class="item">
-        <a href="#">   <div class="roomPic"></div>
+        <a href="#">   <div class="roomPic" style="background-image: url(${hotel.imgLink}) "></div>
            <div class="userReply">
                   <div class="rating">
                     ${function loop(){
@@ -89,7 +90,7 @@ function renderHotels(hotels){
                   </div>
                   <Span class="review">25 review</Span>
            </div>
-              <span class="roomName">${hotel.name}</span>
+              <div class="roomName">${hotel.name}</div>
               <div class="price">
                   <span class="roomCostTitle">Giá Tiền</span>
                   <span class="roomCostNumber">${hotel.price} đ/ngày </span>

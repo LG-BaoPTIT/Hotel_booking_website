@@ -72,7 +72,8 @@ html {
     background-color: orange;
     border-color: transparent;
     color: white;
-    border-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
 
  
 }
@@ -130,6 +131,7 @@ html {
     margin-top: 20px;
     flex-wrap: wrap;
     float: left;
+    justify-content: space-around;
  
 
 }
@@ -145,7 +147,10 @@ html {
 
 .roomPic{
     background-color: #ccc;
-    background:  url('https://www.cet.edu.vn/wp-content/uploads/2019/02/villa-khong-gian-sang-trong.jpg') top center / cover no-repeat;
+    object-fit: contain;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
     height: 170px;
     border-top-left-radius: 6px;
@@ -171,6 +176,7 @@ html {
     margin-top: 10px;
     font-size: 20px;
     font-weight: 500;
+    height: 50px;
 
 }
 .price{
@@ -210,6 +216,8 @@ html {
     color: white;
     outline: none;
     border-color: transparent;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
     font-size: 20px;
 }
 
