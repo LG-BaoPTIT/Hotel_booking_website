@@ -93,11 +93,15 @@
 									<div class="manage_header_addroom_form_front">
 										<div class="addroom_form_item">
 											<p>Tên phòng</p>
-											<input type="text" placeholder="Tên phòng">
+											<input type="text" placeholder="Tên phòng" required>
 										</div>
 										<div class="addroom_form_item">
 											<p>Mô tả phòng</p>
 											<input type="text" placeholder="Mô tả phòng">
+										</div>
+										<div class="addroom_form_item">
+											<p>Xếp hạng sao</p>
+											<input type="text" placeholder="xếp hạng">
 										</div>
 										<div class="addroom_form_item">
 											<p>Giá</p>
@@ -112,7 +116,7 @@
 									</div>
 									<div class="manage_header_addroom_form_back">
 										<a href="#">
-											<div class="addroom_form_submit_add">
+											<div class="addroom_form_submit_add" onclick="if(validateForm()) addroom()">
 												<p>Thêm</p>
 												<i class="fa-solid fa-plus"></i>
 											</div>
@@ -122,7 +126,9 @@
 												<p>Đóng</p>
 												<i class="fa-solid fa-xmark"></i>
 											</div>
+											
 										</a>
+										<p class="alert"></p>
 									</div>
 								</div>
 							</div>

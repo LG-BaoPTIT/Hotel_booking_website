@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hotel.dto.RoomDTO;
@@ -39,14 +40,19 @@ public class RoomAPI {
 	
 	@PostMapping(value = "")
 	public ResponseEntity<RoomEntity> addRoom(@RequestBody RoomDTO model){
+		System.out.println(model.toString());
+		System.out.println("123123");
 		try {
+			System.out.println("ok");
 			RoomEntity room = new RoomEntity();
 			room = roomService.save(roomService.toEntity(model));
+			
 			return ResponseEntity.ok(room);
 		}catch(RuntimeException ex) {
-			ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+			System.out.println("false");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
-		return null;
+		
 	}
 	
 	@PutMapping(value = "/update")
@@ -59,9 +65,9 @@ public class RoomAPI {
 			
 		}
 	}
-	@DeleteMapping(value = "/delete/{id}")
-	public void deleteRoom(@PathVariable("id") Long id) {
-		roomService.deleteById(id);
+	@DeleteMapping(value = "/delete")
+	public void deleteRoom(@RequestBody RoomDTO model) {
+		roomService.deleteById(model.getId());
 	}
 	
 

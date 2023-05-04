@@ -13,4 +13,10 @@ public class RoomDTO extends AbstractDTO{
 	private Long rate;
 	private BigDecimal price;
 	private Long status;
+	@Override
+	public String toString() {
+		return "RoomDTO [name=" + name + ", description=" + description + ", imgLink=" + imgLink + ", rate=" + rate
+				+ ", price=" + price + ", status=" + status + "]";
+	}
+	
 }

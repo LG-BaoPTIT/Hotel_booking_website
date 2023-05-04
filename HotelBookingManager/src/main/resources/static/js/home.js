@@ -42,7 +42,17 @@ const check = () => {
                         </span>
                         <ul class="supnav">
                            <li class="item1">
-                           		<a class="itemLink">Thông tin cá nhân </a>
+                            ${function loop(){
+                       if(getCookie('role')==0){
+						   return '<a  href="/admin" class="itemLink" ">Quản lí</a>';
+					   }
+					   else{
+						   return '<a class="itemLink">Thông tin cá nhân </a>'
+					   }
+                    }
+                        ()
+                    }
+                           		
                            </li>   
                             <li class="item1">
                            		<a class="itemLink">Đổi mật khẩu </a>
@@ -78,10 +88,10 @@ function renderHotels(hotels){
                   <div class="rating">
                     ${function loop(){
                         var rate=[];
-                        for(let i=0;i<hotel.rating;i++){                         
+                        for(let i=0;i<hotel.rate;i++){                         
                             rate.push('<i class="ratingStar fas fa-star"></i>')
                         }
-                        return rate;
+                        return rate.join('');
                     }
                         ()
                     }
