@@ -1,5 +1,5 @@
 package com.hotel.api;
-import com.hotel.dto.UserDTO;
+
 
 import lombok.*;
 
@@ -10,6 +10,5 @@ import lombok.*;
 public class ApiResponse {
     private Boolean success;
     private String message;
-    private UserDTO userDTO;
  
 }

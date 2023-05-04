@@ -41,9 +41,13 @@ public class UserAPI {
 	}
 	
 	@PostMapping(value = "/registeruser",produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<UserEntity> addUser(@RequestBody UserDTO model){
+	public ResponseEntity<?> addUser(@RequestBody UserDTO model){
 		String username = model.getUsername();
 		System.out.print(username);
+		if(userService.existsByUsername(username)) {
+			System.out.println("da ton tai");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(false,"Tài khoản đã tồn tại"));
+		}
 		try {
 			
 			UserEntity user = new UserEntity();

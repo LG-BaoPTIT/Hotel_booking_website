@@ -48,7 +48,7 @@ public class LoginController {
 	    	UserEntity user = entity.get();
 	        session.setAttribute("username", username);
 	        session.setAttribute("id", user.getId());
-	        ApiResponse response = new ApiResponse(true, "Đăng nhập thành công",userService.toDTO(user));
+	        ApiResponse response = new ApiResponse(true, "Đăng nhập thành công");
 	        System.out.println("ok");
 	        
 	     // Lưu thông tin người dùng vào cookie
@@ -64,7 +64,7 @@ public class LoginController {
 	        return ResponseEntity.ok(response);
 	    } else {
 	        System.out.println("false");
-	    	 ApiResponse response = new ApiResponse(false, "Đăng nhập thất bại",null);
+	    	 ApiResponse response = new ApiResponse(false, "Đăng nhập thất bại");
 	         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
 	    }
 	}

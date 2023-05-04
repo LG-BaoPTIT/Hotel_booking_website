@@ -3,11 +3,15 @@ function validateRegisterForm() {
 	const confirm_password = document.getElementById("confirm_password").value;
 	const form = document.querySelector(".form_left_main_input");
 	let isValid = true;
+	document.getElementById("user-error").textContent = "";
+	document.getElementById("password-error2").textContent = "";
+	document.getElementById("password-error1").textContent = ""
+	document.getElementById("register-success").textContent = "";
 	form.addEventListener('submit', (e) => {
 
 		e.preventDefault();
 	})
-	
+
 	if (password.length < 6) {
 		document.getElementById("password-error1").textContent = "Mật khẩu phải có ít nhất 6 kí tự";
 		isValid = false;
@@ -18,10 +22,10 @@ function validateRegisterForm() {
 		document.getElementById("password-error1").textContent = ""
 		isValid = false;
 	}
-	if(isValid){
+	if (isValid) {
 		registerUser();
 	}
-	
+
 }
 
 async function registerUser() {
@@ -54,10 +58,20 @@ async function registerUser() {
 		body: JSON.stringify(formData),
 	};
 
-	const response = await fetch(url, fetchOptions);
-	if (response.ok) {
-		console.log('ok ok')
+	const response = await fetch(url, fetchOptions)
+	if (!response.ok) {
+		const errorResponse = await response.json();
+		console.log(errorResponse.success);
+		document.getElementById("user-error").textContent = errorResponse.message;
 	}
+	else {
+		document.getElementById("register-success").textContent = "Tạo tài khoản thành công";
+		setTimeout(() => {
+			window.location.href = '/login'
+		}, 2000)
+
+	}
+
 	/*	if (response.ok) { 
 			localStorage.setItem('oke',response.ok)
 			 window.location.href = "http://localhost:8080/home";

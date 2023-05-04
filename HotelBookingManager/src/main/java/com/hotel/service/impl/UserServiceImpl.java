@@ -36,7 +36,13 @@ public class UserServiceImpl implements UserService {
 	public boolean existsById(Long id) {
 		return repository.existsById(id);
 	}
-
+	
+	@Override
+	public boolean existsByUsername(String username) {
+		// TODO Auto-generated method stub
+		return repository.existsByUsername(username);
+	}
+	
 	@Override
 	public List<UserEntity> findAll() {
 		return (List<UserEntity>)repository.findAll();
@@ -118,6 +124,8 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return repository.findByUsername(username);
 	}
+
+
 
 
 

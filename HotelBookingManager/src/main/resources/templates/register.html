@@ -41,6 +41,7 @@
 							<div class="form_left_main_input-item">
 								<label for="username">Tên tài khoản</label>
 								<input type="email" id="username" name="username" placeholder="abc@gmail.com" required>
+								<span id="user-error" class="text-danger" style="color: red;"></span>
 							</div>
 							<div class="form_left_main_input-item">
 								<label for="password">Mật khẩu</label>
@@ -53,6 +54,7 @@
 								<input type="password" id="confirm_password" name="confirm_password"  placeholder="*******"
 									 required>
 								<span id="password-error2" class="text-danger" style="color: red;"></span>
+								<span id="register-success" class="text-danger" style="color: green;"></span>
 							</div>
 							  <button type="submit" class="form_left_main_button_submit" onclick= 'validateRegisterForm()'>
 								  <a href="#">
