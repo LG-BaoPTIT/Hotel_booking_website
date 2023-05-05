@@ -1,6 +1,5 @@
 package com.hotel.api;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,57 +12,51 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hotel.dto.OrderDTO;
-import com.hotel.entities.OrderEntity;
-import com.hotel.service.OrderService;
+import com.hotel.service.impl.OrderServiceImpl;
 
-@RestController("")
 @CrossOrigin
-@RequestMapping("/api/orders")
+@RestController
 public class OrderAPI {
+	
 	@Autowired
-	OrderService orderService;
+	private OrderServiceImpl orderServiceImpl;
 	
-	@GetMapping("")
-	public List<OrderDTO> getAllOrder(){
-		List<OrderDTO> result = new ArrayList<>();
-		List<OrderEntity> entities = orderService.findAll();
-		for(OrderEntity entity : entities) {
-			result.add(orderService.toDTO(entity));
-		}
-		return result;
-	}
-	
-	@PostMapping("")
-	public ResponseEntity<OrderEntity> addOrder(@RequestBody OrderDTO model){
+	@PostMapping(value = "/api/order")
+	public ResponseEntity<OrderDTO> addOrder(@RequestBody OrderDTO model) {
 		try {
-			OrderEntity entity = new OrderEntity();
-			entity = orderService.save(orderService.toEntity(model));
-			return ResponseEntity.ok(entity);
-			
-		}catch(RuntimeException ex) {
+			OrderDTO categoryDTO = orderServiceImpl.save(model);
+			return ResponseEntity.ok(categoryDTO);
+		} catch(RuntimeException ex) {
+			ex.printStackTrace();
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+		}
+    }
+	
+	@PutMapping(value = "/api/order/{id}")
+	public ResponseEntity<OrderDTO> updateOrder(@RequestBody OrderDTO model, @PathVariable("id") long id) {
+		try {	
+			model.setId(id);
+			return ResponseEntity.ok(orderServiceImpl.save(model));
+		} catch (RuntimeException ex) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 	}
 	
-	@PutMapping("/update")
-	public ResponseEntity<OrderEntity> updateOrder(@RequestBody OrderDTO model){
-		try {
-			OrderEntity entity = new OrderEntity();
-			entity = orderService.save(orderService.toEntity(model));
-			return ResponseEntity.ok(entity);
-		}catch(RuntimeException ex) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-		}
+	@DeleteMapping(value = "/api/order/{id}")
+	public void deleteCategory(@PathVariable("id") long id) {
+		orderServiceImpl.delete(id);
 	}
 	
-	@DeleteMapping("/delete/{id}")
-	public void deleteOrder(@PathVariable Long id) {
-		orderService.deleteById(id);
+	@GetMapping(value = "/api/order")
+	public List<OrderDTO> getAllOrder() {
+		return orderServiceImpl.getAllOrder();
 	}
 	
-	
+	@GetMapping(value = "/api/order/{id}")
+	public List<OrderDTO> getOrderByUserId(@PathVariable("id") long id) {
+		return orderServiceImpl.getOrderByUserId(id);
+	}
 }

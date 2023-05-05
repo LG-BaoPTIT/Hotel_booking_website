@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 public class RoomDTO extends AbstractDTO{
+	private Long id;
 	private String name;
 	private String description;
 	private String imgLink;

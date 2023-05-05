@@ -7,17 +7,104 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" th:href="@{/style/home.css}">
+	<link rel="stylesheet" th:href="@{/style/cart.css}">
 	<link rel="stylesheet" th:href="@{assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css}">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
 		rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/style/order.css}">
 	<title>Document</title>
 </head>
 
 <body>
+	<div class="order_main hide">
+		<div class="order_main_box">
+			<div class="order_main_form">
+				<div class="order_form_header">
+					<p>Thông tin đặt phòng</p>
+					<a href="#">
+						<div class="order_content_item_cancel">
+							<i class="fa-solid fa-xmark"></i>
+						</div>
+					</a>
+				</div>
+
+				<div class="order_form_content">
+					<div class="order_form_content_label">
+						<div class="order_form_content_label1">
+							<p>Nơi ở đã chọn</p>
+						</div>
+						<div class="order_form_content_label_right">
+							<div class="order_form_content_label_rightbox">
+
+								<div class="order_form_content_label2">
+									<i class="fa-solid fa-house-chimney"></i>
+									<p>Số phòng</p>
+								</div>
+								<div class="order_form_content_label2">
+									<i class="fa-regular fa-calendar-days"></i>
+									<p>Lịch</p>
+								</div>
+								<div class="order_form_content_label2">
+									<i class="fa-solid fa-money-check-dollar"></i>
+									<p>Giá tiền</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="order_form_content_listitems">
+						<div class="order_form_content_item">
+							<div class="order_form_content_item_left">
+
+								<img class="jsImgRoomOrder" src="/styles/img/banner/banner1.jpg" alt="">
+								<div class="order_content_item_1">
+									<p class="order_content_item_name">
+										Bridge Resort
+									</p>
+									<p class="order_content_item_type">
+										Phòng hai giường đơn
+									</p>
+								</div>
+							</div>
+							<div class="order_form_content_item_right">
+								<div class="order_content_item_number">
+									<input class="numberRooms" type="number">
+								</div>
+								<div class="order_content_item_date">
+									<input class="datein" type="date"><br>
+									<input class="dateout" type="date">
+								</div>
+								<div class="order_content_item_price">
+									0
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="order_form_footer">
+						<div class="order_form_footer_left">
+							<p class="order_form_wantadditem_front">Tổng thanh toán</p>
+							<a href="#" style="color:white">
+								<div class="order_form_wantadditem">
+									<p class="order_form_wantadditem_back">Tôi muốn đặt thêm</p>
+								</div>
+							</a>
+						</div>
+						<div class="order_form_footer_right">
+							<div class="order_form_footer_left">
+								<p class="order_form_wantadditem_front js-price">0 đ</p>
+							</div>
+							<div class="btn-pay">Xác Nhận</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div id="wrapper1">
 		<header id="header">
-			<a href="#" class="Logo">Traverlcom</a>
+			<a href="#" class="Logo">PTITHOTEL</a>
 			<div class="headerInput">
 				<i class="fa-solid fa-magnifying-glass searchIcon"></i>
 				<input class="input" placeholder="Nhập nội dung tìm kiếm">
@@ -32,7 +119,7 @@
 		<div id="content">
 			<div class="contentTitle">
 				<span class="title1">Book Đi nào. Mãi bên nhau bạn nhé!</span>
-				<span class="title2">Top nơi sang chảnh đón hè đã sãng sàng với Traverlcom. Book ngay đi nè</span>
+				<span class="title2">Top nơi sang chảnh đón hè đã sãng sàng với PTITHOTEL. Book ngay đi nè</span>
 			</div>
 			<ul class="listRoom">
 			</ul>
@@ -133,7 +220,7 @@
 			</div>
 			<div class="footer__bottom">
 				<div class="grid">
-					<p class="footer__text">2023 - Bản quyền thuộc về Công ty của Traverlcom</p>
+					<p class="footer__text">2023 - Bản quyền thuộc về Công ty của HOTELPTIT</p>
 				</div>
 			</div>
 		</footer>

@@ -243,7 +243,6 @@ html {
     height: 340px;
     margin: 20px 25px 0px;
     text-decoration: none;
-
 }
 .placeItem a {
     text-decoration: none;
@@ -259,13 +258,7 @@ html {
 .placeName{
     font-size: 20px;
     color: #000;
-
 }
-
-
-
-
-
 .footer {
     padding-top: 36px;
     border-top: 4px solid var(--primary-color);

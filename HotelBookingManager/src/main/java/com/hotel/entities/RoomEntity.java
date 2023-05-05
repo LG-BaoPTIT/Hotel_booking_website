@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 
 
 
+
 @Entity
 @Table(name = "tb_room")
 public class RoomEntity extends BaseEntity {
@@ -32,24 +33,8 @@ public class RoomEntity extends BaseEntity {
 
 	
 	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<OrderDetailEntity> orderDetails = new ArrayList<>();
+	private List<OrderEntity> orders = new ArrayList<>();
 	
-	public RoomEntity() {
-		super();
-	}
-	
-	public RoomEntity(String name, String description, String imgLink, Long rate, BigDecimal price, Long status,
-			List<OrderDetailEntity> orderDetails) {
-		super();
-		this.name = name;
-		this.description = description;
-		this.imgLink = imgLink;
-		this.rate = rate;
-		this.price = price;
-		this.status = status;
-		
-		this.orderDetails = orderDetails;
-	}
 
 	public String getName() {
 		return name;
@@ -101,15 +86,14 @@ public class RoomEntity extends BaseEntity {
 		this.status = status;
 	}
 
-
-	public List<OrderDetailEntity> getOrderDetails() {
-		return orderDetails;
+	public List<OrderEntity> getOrders() {
+		return orders;
 	}
 
-	public void setOrderDetails(List<OrderDetailEntity> orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setOrders(List<OrderEntity> orders) {
+		this.orders = orders;
 	}
-	
+
 	
 	
 }

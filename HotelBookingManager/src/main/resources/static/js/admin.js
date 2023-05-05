@@ -1,6 +1,8 @@
 const add = document.querySelector('.js-addformbutton')
 const cancel = document.querySelector('.js-cancelbutton')
+const cancelBtnUpdate = document.querySelector('.js-cancelbuttonBtn')
 const addform = document.querySelector('.js-form_add')
+const addform2 = document.querySelector('.js-form_add2')
 const cancel2 = document.querySelector('.js-cancelbutton2')
 const updates = document.querySelectorAll('.js-updatebutton')
 const updateform = document.querySelector('.js-form_update')
@@ -8,8 +10,19 @@ const updateform = document.querySelector('.js-form_update')
 function Opentab() {
 	addform.classList.add('form-active')
 }
+function Opentab2(roomid) {
+	localStorage.setItem('roomUpdateId', roomid);
+	addform2.classList.add('form-active')
+	
+	
+}
 function Closetab() {
 	addform.classList.remove('form-active')
+}
+function Closetab2() {
+	localStorage.removeItem('roomUpdateId');
+	addform2.classList.remove('form-active')
+	
 }
 
 function Closetab1() {
@@ -24,17 +37,18 @@ updates.forEach(item => {
 		updateform.classList.add('form-active')
 	})
 });
+
 const remove = () => {
 	localStorage.clear('oke');
 	window.location.reload();
 
 }
-const log = (id) => {
-	console.log(id)
-}
+
+console.log(cancelBtnUpdate)
 
 add.addEventListener('click', Opentab)
 cancel.addEventListener('click', Closetab)
+cancelBtnUpdate.addEventListener('click', Closetab2)
 /*cancel2.addEventListener('click',Closetab1)*/
 //lấy cookie theo key
 function getCookie(name) {
@@ -145,7 +159,8 @@ function renderHotels(hotels) {
 							</div>
 							<div class="manage_content_item_right">
 								<div class="item_right_icon">
-									<i class="fa-solid fa-pen-to-square"></i>
+						
+									<i class="fa-solid fa-pen-to-square" onclick='Opentab2(${hotel.id})'></i>
 									<button class="fa-solid fa-trash" onclick='deleteRoom(${hotel.id})' ></button>
 									
 									
@@ -160,6 +175,44 @@ function renderHotels(hotels) {
 	listHotelBlock.innerHTML = html.join('');
 
 
+}
+//sua phong
+const apiUpdateRoom = "http://localhost:8080/api/rooms/update";
+async function updateRoom() {
+	const name = document.getElementById('roomname').value;
+	const description = document.getElementById('description').value;
+	const rating = document.getElementById('rating').value;
+	const price = document.getElementById('price').value;
+
+	const formData = {
+		id:localStorage.getItem('roomUpdateId'),
+		name: name,
+		description: description,
+		rate: rating,
+		price: price,
+		status:'0'
+		
+	};
+	console.log(formData);
+	const fetchOptions = {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+			Accept: "application/json",
+		},
+		body: JSON.stringify(formData),
+	};
+	
+	const response = await fetch(apiUpdateRoom, fetchOptions);
+	if(response.ok){
+		getHotels();
+		clearInputs()
+		alert('Cập nhật thành công!');
+	}
+	else{
+		alert('Cập nhật thất bại!');
+	}
+	
 }
 /// Thêm phòng
 const apiRoom = "http://localhost:8080/api/rooms";
@@ -193,7 +246,7 @@ async function addroom() {
 		alert('Thêm phòng thành công!');
 	}
 	else{
-		alert('Thêm phòng thành công!');
+		alert('Thêm phòng không thành công!');
 	}
 	
 }
