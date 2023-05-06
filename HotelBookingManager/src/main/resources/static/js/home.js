@@ -48,10 +48,10 @@ function getCookie(name) {
 const check = () => {
 	const login = document.querySelector('.bb')
 	const auth = document.querySelector('.auth')
-	
+	const role = getCookie('role');
 
 
-	if(localStorage.getItem('oke')) {
+	if(localStorage.getItem('oke') && role==1) {
 		return auth.innerHTML = `    <a  href="/home" class="btn">Trang chủ</a>
                    					 <a  href="/cart" class="btn">Đặt phòng</a>
                    					  <div class="wrapper">
@@ -75,6 +75,32 @@ const check = () => {
                 </div>`
                     				
 	}
+	if (localStorage.getItem('oke') && role==0) {
+		return auth.innerHTML = `    <a  href="/home" class="btn">Trang chủ</a>
+                   					 <a  href="#" class="btn">Đặt phòng</a>
+                   					  <div class="wrapper">
+                        <span class="userName">Xin chào ${getCookie('name')}
+                            <i class="fa-solid fa-caret-down" style="color: orange;"></i>
+                        </span>
+                        <ul class="supnav">
+                           <li class="item1">
+                           		<a  href="/admin" class="itemLink" ">Quản lí</a>
+                           </li>   
+                            <li class="item1">
+                           		<a class="itemLink">Đổi mật khẩu </a>
+                           </li> 
+           	
+                           <li class="item1">
+                           		<a  href="/logout" class="itemLink" onclick="remove()">Đăng xuất</a>
+                           		
+                           </li>
+                        </ul>
+                    </div>
+                   
+                </div>`
+
+	}
+	
 	return auth.innerHTML  = ` <a  href="#" class="btn">Trang chủ</a>
                    					 <a  href="#" class="btn">Đặt phòng</a>
                     				<a  href="/login" class="btn">Đăng nhập</a>

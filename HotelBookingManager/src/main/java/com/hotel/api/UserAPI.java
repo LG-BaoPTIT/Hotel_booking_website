@@ -45,7 +45,6 @@ public class UserAPI {
 		String username = model.getUsername();
 		System.out.print(username);
 		if(userService.existsByUsername(username)) {
-			System.out.println("da ton tai");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(false,"Tài khoản đã tồn tại"));
 		}
 		try {
@@ -59,9 +58,9 @@ public class UserAPI {
 		}
 	}
 	
-	@DeleteMapping(value="/api/users/delete/{id}")
-	public void deleteUser(@PathVariable("id") Long id) {
-		userService.deleteById(id);
+	@DeleteMapping(value="/api/users/delete")
+	public void deleteUser(@RequestBody UserDTO user) {
+		userService.deleteById(user.getId());
 	}
 	
 	@PutMapping(value="/api/users/update")

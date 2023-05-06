@@ -18,4 +18,11 @@ public class AdminController {
 		return "admin";
 	}
 	
+	@GetMapping("/adminOderPage")
+	public String adminOderPage(HttpServletResponse respon) {
+		
+		return "adminOderPage";
+	}
+	
+	
 }

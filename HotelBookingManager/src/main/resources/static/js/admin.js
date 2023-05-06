@@ -63,12 +63,36 @@ function getCookie(name) {
 }
 //tùy chỉnh các mục ở header
 const check = () => {
-
+	const login = document.querySelector('.bb')
 	const auth = document.querySelector('.auth')
-	console.log(localStorage.getItem('oke'));
+	const role = getCookie('role');
 
 
-	if (localStorage.getItem('oke')) {
+	if(localStorage.getItem('oke') && role==1) {
+		return auth.innerHTML = `    <a  href="/home" class="btn">Trang chủ</a>
+                   					 <a  href="/cart" class="btn">Đặt phòng</a>
+                   					  <div class="wrapper">
+                        <span class="userName">Xin chào ${getCookie('name')}
+                            <i class="fa-solid fa-caret-down" style="color: orange;"></i>
+                        </span>
+                        <ul class="supnav">
+                           <li class="item1">
+                           		<a class="itemLink">Thông tin cá nhân </a>
+                           </li>   
+                            <li class="item1">
+                           		<a class="itemLink">Đổi mật khẩu </a>
+                           </li> 
+           	
+                           <li class="item1">
+                           		<a  href="/logout" class="itemLink" onclick="remove()">Đăng xuất</a>
+                           </li>
+                        </ul>
+                    </div>
+                   
+                </div>`
+                    				
+	}
+	if (localStorage.getItem('oke') && role==0) {
 		return auth.innerHTML = `    <a  href="/home" class="btn">Trang chủ</a>
                    					 <a  href="#" class="btn">Đặt phòng</a>
                    					  <div class="wrapper">
@@ -93,14 +117,17 @@ const check = () => {
                 </div>`
 
 	}
-	return auth.innerHTML = ` <a  href="#" class="btn">Trang chủ</a>
+	
+	return auth.innerHTML  = ` <a  href="#" class="btn">Trang chủ</a>
                    					 <a  href="#" class="btn">Đặt phòng</a>
                     				<a  href="/login" class="btn">Đăng nhập</a>
                     				<a  href="/register" class="btn">Đăng ký</a>`;
-
-
-
+	
+	
+	
 }
+check();
+
 //
 
 // lấy API
@@ -142,7 +169,7 @@ function renderHotels(hotels) {
 									
 									</p>
 									<p class="item_left_information_3">
-		    ${function loop() {
+		    ${function status() {
 				if (hotel.status == 0) {
 					return 'Trạng thái: còn trống'
 				}

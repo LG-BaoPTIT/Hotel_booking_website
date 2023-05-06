@@ -61,7 +61,6 @@ async function registerUser() {
 	const response = await fetch(url, fetchOptions)
 	if (!response.ok) {
 		const errorResponse = await response.json();
-		console.log(errorResponse.success);
 		document.getElementById("user-error").textContent = errorResponse.message;
 	}
 	else {
