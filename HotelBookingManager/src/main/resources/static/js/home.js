@@ -382,5 +382,25 @@ btnOrderMore.onclick = () => {
 	fcOrderClose();
 }
 
+var index=0;
+var arr_anh=[
+	"https://cdn1.ivivu.com/iVivu/2018/06/15/15/khach-san-paris-deli-da-nang-42-800x450.jpg",
+    "//khachsandayroi.com/wp-content/uploads/2017/09/about_banner.jpg",
+    "https://anhthaohotel.com/wp-content/uploads/2019/07/banner-anhthao-hotel-2.jpg",
+    "https://brghospitality.vn/palace/wp-content/uploads/sites/5/2019/09/Palace_Banner-Superior-1920X704-02-02.jpg",
+    "http://banthachriversidehotel.com/wp-content/uploads/2020/12/ceafc01706f3f7adaee2.jpg",
+]
+function prev(){
+    index--;
+    if(index <-0) index = arr_anh.length-1;
+    document.getElementById("hinh").src=arr_anh[index];
+    
+}
+function next(){
+    index++;
+    if(index==arr_anh.length) index = 0;
+    document.getElementById("hinh").src=arr_anh[index];
+}
+setInterval("next()",5000);
 
 start();

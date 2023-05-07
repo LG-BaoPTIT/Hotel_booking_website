@@ -125,7 +125,8 @@ function renderAccounts(accounts) {
 		return `
    			<div class="account_item">
                                 <div class="account_item_left">
-                                    <p class="account_item_name">${account.name}
+                                    <p class="account_item_name">${account.name}</p>
+                                    <p>
                                     
                                     (${function role() {
 				if (account.role == 1) {

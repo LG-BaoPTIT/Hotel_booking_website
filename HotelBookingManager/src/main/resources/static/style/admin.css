@@ -274,7 +274,7 @@ content: '';
 .manage_header_addroom_form{
     position: absolute;
     border: 1px solid rgb(216, 206, 206);
-    bottom:-168px;
+    top:82px;
     right: 0;
     background-color: white;
     border-bottom-left-radius: 4px;
@@ -307,9 +307,11 @@ content: '';
     align-items: center;
     border-radius: 10px;
     height: 66px;
+    width: 100px;
+    margin-top:12px;
 }
 .addimg_in{
-    width: 50%;
+    width: 86%;
 }
 .addimg_in span{
     font-size: 14px;
@@ -317,12 +319,20 @@ content: '';
 .fa-image{
     font-size: 16px;
     margin-right: 4px;
+    
+}
+.addimg_in i{
+	margin-left: 33px;
+}
+fileimg{
+	font-size: 16px;
 }
 .addroom_form_item input{
     padding:8px;
     border-radius: 4px;
     border: 2px solid rgb(215, 214, 214);
-    font-size:16px
+    font-size:16px;
+    width: 150px;
 }
 .manage_header_addroom_form_back{
     margin-top: 32px;
@@ -384,14 +394,14 @@ content: '';
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 53px;
+    margin-left: 68px;
 }
 .manage_content_item{
     display: flex;
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
-    
+    margin-bottom:12px;
 }
 .manage_content_item_left{
     display: flex;
@@ -437,7 +447,10 @@ content: '';
 .item_right_icon{
     margin:8px 0px 0 76px ;
 }
-
+.item_right_icon button{
+	border:none;
+	
+}
 .main_content_information{
     margin:64px 0 0 32px;
 
@@ -517,7 +530,7 @@ content: '';
 .payment_manage_content_item{
     display: flex;
     border-bottom: 3px solid var(--primary-color);
-    margin: 106px 0 0 2px;
+    margin: 24px 0 0 2px;
     flex-wrap: wrap;
 }
 .payment_manage_content_img img{
@@ -601,12 +614,14 @@ content: '';
     display: flex;
     border-radius: 16px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    margin:0 64px 32px 0;
+    margin:0 24px 32px 0;
+    height: 150px;
+    width: 44%;
 }
 .account_item_box{
     display: flex;
     flex-wrap: wrap; 
-    margin-left:92px;
+    margin-left:65px;
     width: 100%;
 }
 .account_content_manage_content{
@@ -615,13 +630,42 @@ content: '';
 }
 .account_item_left p{
     font-size: 24px;
-    margin: 24px 18px 32px 24px;
+    margin: 12px 18px 0px 24px;
+    line-height: 1.6;
 }
 .account_item_left{
-    width: 240px;
+	width: 60%;
+   
 }
 .account_icon{
-    margin-right: 32px;
+    
     margin-top: 18px;
 }
+#userRole{
+	margin-top: 18px;
+    margin-left: 4px;
+    line-height: 1.6;
+}
+#userRole label{
+   font-size:20px	
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 4px 8px 4px 12px;
+    display: inline-block;
+    cursor: pointer;
+}
 
+.inputfile:focus + label,
+.inputfile + label:hover {
+    opacity: 0.8;
+}

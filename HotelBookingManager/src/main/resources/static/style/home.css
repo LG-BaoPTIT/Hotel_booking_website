@@ -35,6 +35,7 @@ html {
     font-weight: 700;
     text-decoration: none;
 }
+
 .headerInput{
     width: 30%;
     display: flex;
@@ -132,8 +133,10 @@ html {
     flex-wrap: wrap;
     float: left;
     justify-content: space-between;
- 
-
+    overflow-y: auto;
+    height: 800px;
+    padding-right: 32px;
+    border-bottom:4px solid orange;
 }
 .item{
     width: 230px;
@@ -220,13 +223,16 @@ html {
     border-bottom-left-radius: 6px;
     font-size: 20px;
 }
-
+.bookBtn:hover{
+	opacity: 0.6;
+	
+}
 .ml10 {
     margin-left: 10px;
 }
 
 .hostPlace{
-
+    margin-top:32px;
 }
 .hostPlaceHeader{
     font-size: 40px;
@@ -235,25 +241,20 @@ html {
 .placeList{
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    width: 1300px;
     margin-top: 20px;
+    padding-bottom:32px
 }
 .placeItem{
-    width: 30%;
-    height: 340px;
-    margin: 20px 25px 0px;
-    text-decoration: none;
+	margin-right: 32px;
+    
+}
+.placeItem img{
+	border-radius: 8px;
 }
 .placeItem a {
     text-decoration: none;
-}
-.placeImg{
-    width: 100%;
-    height: 290px;
-    background-color: #ccc;
-    background:  url('https://www.cet.edu.vn/wp-content/uploads/2019/02/villa-khong-gian-sang-trong.jpg') top center / cover no-repeat;
-    border-radius: 8px;
-    margin-bottom: 10px;
 }
 .placeName{
     font-size: 20px;
@@ -267,7 +268,7 @@ html {
 .footer__heading {
     font-size: 18px;
     text-transform: uppercase;
-    color: var(--text-color);
+    color: white;
 
 }
 .footer__list {
@@ -278,7 +279,7 @@ html {
     display: flex;
     text-decoration: none;
     font-size: 1.2rem;
-    color: #737373;
+    color: white;
     padding: 8px 0;
     align-items: center;
 }
@@ -325,7 +326,7 @@ html {
     text-align: center;
     margin: 0px;
     font-size: 1.4rem;
-    color: #737373;
+    color:white;
 }
 
 
@@ -454,4 +455,33 @@ content: '';
       font-size: 32px;
     }
   }
+  .container_banner img{
+    width: 100%;
+    height: 100%;
+    transition: 2s;
+    
+    
+}
+.container_banner{
+    position: relative;
+  
+    height: 750px;
+}
+.fa-circle-chevron-left{
+    position:absolute;
+    top:50%;
+    left: 12px;
+    font-size: 42px;
+    color:rgb(120, 100, 100);
+
+}
+.fa-circle-chevron-right{
+    position:absolute;
+    top:50%;
+    right: 12px;
+    font-size: 42px;
+    color:rgb(120, 100, 100);
+
+}
+  
   

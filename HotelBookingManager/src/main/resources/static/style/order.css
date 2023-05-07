@@ -19,7 +19,7 @@
     backdrop-filter: blur(5px);
 }
 .order_main_box{
-    width: 60%;
+    width: 70%;
     border-radius: 8px;
     margin-top:32px;
 }
@@ -51,6 +51,7 @@
 .order_form_content_label_rightbox{
     display: flex;
     justify-content: space-between;
+    margin-left:38px
 
 }
 .order_form_content{
@@ -86,6 +87,7 @@
     display: flex;
     justify-content: space-between;
     width: 65%;
+ 
 }
 .order_content_item_name{
     font-size: 20px;
@@ -97,12 +99,13 @@
     height:150px;
 }
 .order_form_content_item_right{
-    margin-left: 42px;
+    margin-left: 100px;
 
 }
-.order_content_item_number input{
-    font-size: 16px;
-    width: 78px;
+.order_content_item_number {
+    font-size: 24px;
+    font-weight: bold;
+    
 }
 .order_content_item_number input{
     margin-top: 16px;
@@ -115,10 +118,11 @@
     width: 78px;
 }
 .order_content_item_date input{
-	padding: 4px;
+	padding: 4px 16px 4px 16px;
     border-radius: 4px;
-    
+    font-size: 16px;
 }
+   
 .order_form_content_listitems{
     margin-top: 32px;
     overflow-y: auto;
