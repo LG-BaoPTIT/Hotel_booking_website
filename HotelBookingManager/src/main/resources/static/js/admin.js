@@ -285,7 +285,7 @@ function clearInputs() {
 }
 function validateForm() {
   // Lấy tất cả các trường input từ form
-  const inputFields = document.querySelectorAll('.addroom_form input');
+  const inputFields = document.querySelectorAll('.addroom_form1 input');
 
   // Duyệt qua tất cả các trường input và kiểm tra xem chúng đã được điền đầy đủ hay không
   for (let i = 0; i < inputFields.length; i++) {
@@ -334,3 +334,4 @@ function start() {
 }
 
 start();
+///

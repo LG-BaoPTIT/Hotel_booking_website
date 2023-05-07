@@ -41,9 +41,9 @@ public class RoomAPI {
 	@PostMapping(value = "")
 	public ResponseEntity<RoomEntity> addRoom(@RequestBody RoomDTO model){
 		System.out.println(model.toString());
-		System.out.println("123123");
+		
 		try {
-			System.out.println("ok");
+			
 			RoomEntity room = new RoomEntity();
 			room = roomService.save(roomService.toEntity(model));
 			
