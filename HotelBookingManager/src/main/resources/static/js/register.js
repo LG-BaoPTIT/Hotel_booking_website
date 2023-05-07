@@ -32,6 +32,7 @@ async function registerUser() {
 	const fullname = document.getElementById("fullname").value;
 	const username = document.getElementById("username").value;
 	const password = document.getElementById("password").value;
+	const phone = document.getElementById("sdt").value;
 	const roleuser = "1";
 	const url = "http://localhost:8080/registeruser";
 
@@ -39,7 +40,8 @@ async function registerUser() {
 		name: fullname,
 		username: username,
 		password: password,
-		role: roleuser
+		role: roleuser,
+		phone:phone
 	};
 
 

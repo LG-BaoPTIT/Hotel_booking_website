@@ -86,4 +86,15 @@ public class OrderServiceImpl implements OrderService {
 		return orderDTOs;
 	}
 
+	@Override
+	public List<OrderDTO> getOrderByRoomId(long id) {
+		List<OrderEntity> orderEntities = orderRepository.findByRoomId(id);
+		List<OrderDTO> orderDTOs = new ArrayList<>();
+		for(OrderEntity orderEntity : orderEntities) {
+			orderDTOs.add(orderConverter.toDTO(orderEntity));
+		}
+		return orderDTOs;
+	}
+
+
 }

@@ -59,4 +59,8 @@ public class OrderAPI {
 	public List<OrderDTO> getOrderByUserId(@PathVariable("id") long id) {
 		return orderServiceImpl.getOrderByUserId(id);
 	}
+	@GetMapping(value = "/api/order/room/{id}")
+	public List<OrderDTO> getOrderByRoomId(@PathVariable("id") long id) {
+		return orderServiceImpl.getOrderByRoomId(id);
+	}
 }

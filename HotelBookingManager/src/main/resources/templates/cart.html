@@ -2,35 +2,62 @@
 <html lang="en">
 
 <head>
-    <title>cart</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" th:href="@{/style/cart.css}" >
-    <link rel="stylesheet" th:href="@{/style/base.css}" >
-    <link rel="stylesheet" th:href="@{/style/abs.css}"  >
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style/font/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.css">
+	<title>cart</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<link rel="stylesheet" th:href="@{/style/cart.css}">
+	<link rel="stylesheet" th:href="@{/style/base.css}">
+	<link rel="stylesheet" th:href="@{/style/abs.css}">
+		<link rel="stylesheet" th:href="@{assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css}">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+		rel="stylesheet">
+	
 </head>
 
 <body>
-    <div id="wrapper1">
-        <header id="header">
-            <a href="/home" class="Logo">PTITHOTEL</a>
-        </header>
-        <div class="content_manage_content">
-            <div class="content_manage_container">
-                <ul class = "js-listOrder">
-                   
-                </ul>
-                
-            </div>
+	<div id="wrapper1">
+		<div id="wrapper1">
+			<header id="header">
+				<a href="/home" class="Logo">PTITHOTEL</a>
+				<div class="headerInput">
+					<i class="fa-solid fa-magnifying-glass searchIcon"></i>
+					<input class="input" placeholder="Nhập nội dung tìm kiếm">
+					<button class="searchBtn">Tìm Kiếm</button>
+				</div>
+				<div class="auth">
+				</div>
+			</header>
+		</div>
+		<div class="content_manage_content">
+			<div class="content_manage_container">
+				<ul class="js-listOrder">
 
-        </div>
-    </div>
+				</ul>
 
-    <script th:src="@{/js/cart.js}"></script>
+			</div>
+
+		</div>
+		<div class="alert_main hide">
+			<div class="alert_main-container">
+				<div class="alert_main_box">
+					<div class="alert_main_box_in">
+						<div class="alert_main_front">
+							<p class="noalertred">Bạn có chắc chắn muốn hủy đặt phòng? </p>
+							<p class="alertred">Bạn sẽ phải chịu mọi trách nhiệm với hành vi của mình!</p>
+						</div>
+						<div class="alert_main_back">
+							<div class="alert_main_back_btn">
+								<a onclick="hide()" style="cursor: pointer;" >Hủy</a>
+							</div>
+							<button class="js-btn-confirmCancel">Xác nhận</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/js/cart.js}"></script>
 </body>
 
 </html>

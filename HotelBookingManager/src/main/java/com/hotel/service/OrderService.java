@@ -10,4 +10,5 @@ public interface OrderService {
 	void delete(long id);
 	List<OrderDTO> getAllOrder();
 	List<OrderDTO> getOrderByUserId(long id);
+	List<OrderDTO> getOrderByRoomId(long id);
 }

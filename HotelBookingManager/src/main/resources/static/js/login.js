@@ -46,6 +46,8 @@ async function validateLoginForm(e) {
 
 		if (response.ok) {
 			localStorage.setItem('oke', response.ok)
+			const respon = response.json();
+			
 			if(getCookie('role')==1){
 				window.location.href = "http://localhost:8080/home";
 			}

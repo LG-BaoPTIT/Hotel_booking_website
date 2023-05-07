@@ -45,7 +45,7 @@ public class UserAPI {
 		String username = model.getUsername();
 		System.out.print(username);
 		if(userService.existsByUsername(username)) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(false,"Tài khoản đã tồn tại"));
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(false,"Tài khoản đã tồn tại",null));
 		}
 		try {
 			

@@ -9,8 +9,11 @@ function getCookie(name) {
 function validateOrderData(data) {
   for (let key in data) {
     if (data[key] === "" || data[key] === NaN || data[key] === null || data[key] === undefined) {
-      return false;
+      return ("Vui lòng chọn đầy đủ thông tin ");
     }
+  }
+  if(data.datein > data.dateout) {
+	  return "Vui lòng chọn lại ngày tháng";
   }
   return true;
 }
@@ -45,6 +48,7 @@ function getCookie(name) {
   return null;
 }
 
+//tùy chỉnh các mục ở header
 const check = () => {
 	const login = document.querySelector('.bb')
 	const auth = document.querySelector('.auth')
@@ -55,7 +59,7 @@ const check = () => {
 		return auth.innerHTML = `    <a  href="/home" class="btn">Trang chủ</a>
                    					 <a  href="/cart" class="btn">Đặt phòng</a>
                    					  <div class="wrapper">
-                        <span class="userName">Xin chào ${getCookie('name')}
+                        <span class="userName">Xin chào ${getCookie('name').replaceAll('-',' ')}
                             <i class="fa-solid fa-caret-down" style="color: orange;"></i>
                         </span>
                         <ul class="supnav">
@@ -110,6 +114,15 @@ const check = () => {
 	
 }
 
+function getReviewText(rate) {
+  if (rate <= 3) {
+    return "Bình thường";
+  } else if (rate <= 4) {
+    return "Tốt";
+  } else {
+    return "Xuất sắc";
+  }
+}
 
 function renderHotels(hotels){
     var listHotelBlock =document.querySelector('.listRoom');
@@ -119,14 +132,17 @@ function renderHotels(hotels){
 		const des = hotel.description
 		const price = hotel.price;
 		const image = hotel.imgLink;
+		const status = hotel.status;
+		const rate = hotel.rate;
+		const brickPrice = Number(hotel.price) * 1.2;
         return `
         <li class="item">
-        <a href="#">   <div class="roomPic" style="background-image: url(${hotel.imgLink}) "></div>
+       			<div class="roomPic" style="background-image: url(${hotel.imgLink}) "></div>
            <div class="userReply">
                   <div class="rating">
                     ${function loop(){
                         var rate=[];
-                        for(let i=0;i<hotel.rating;i++){                         
+                        for(let i=0;i<hotel.rate;i++){                         
                             rate.push('<i class="ratingStar fas fa-star"></i>')
                         }
                         return rate;
@@ -136,7 +152,7 @@ function renderHotels(hotels){
 
 
                   </div>
-                  <Span class="review">25 review</Span>
+                  <Span class="review">${getReviewText(hotel.rate)}</Span>
            </div>
               <div class="roomName">${hotel.name}</div>
               <div class="price">
@@ -144,14 +160,14 @@ function renderHotels(hotels){
                   <span class="roomCostNumber">${hotel.price} đ/ngày </span>
               </div>
               <div class="roomLeft">
-                  <span class="roomLeft">Còn ${hotel.quantityRoom} phòng</span>
+                  <span class="roomLeft">Còn Phòng</span>
                   <i class="fa-solid fa-ticket"></i>
-                  <span class="roomIn">120 đã đặt</span>
+                  <strike class="roomIn">${brickPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</strike>
               </div>
-              <button class="bookBtn" onclick ="fcOrder('${id}', '${name}', '${des}', '${price}', '${image}')">
+              <button class="bookBtn" onclick ="fcOrder('${id}', '${name}', '${des}', '${price}', '${image}', ${rate}, ${status})">
                   Đặt Ngay
                   <i class="fa-solid fa-bolt-lightning ml10"></i>
-              </button></a>                      
+              </button>                      
    </li>
         `;
     });
@@ -175,15 +191,103 @@ const DesRoomOrder = document.querySelector(".order_content_item_type");
 const PriceRoomOrder = document.querySelector(".order_content_item_price");
 const datein = document.querySelector(".datein")
 const dateout = document.querySelector(".dateout")
-const numberRoom = document.querySelector(".numberRooms");
 const dpTotalPrice = document.querySelector(".js-price")
 const confirm = document.querySelector('.btn-pay')
 
-const fcOrder = (roomID,name,des, price, imgRoom) => {
+const fcOrder = (roomID,name,des, price, imgRoom, rate, status) => {
+	
+	
+	
 	if(!checkUserLogin) {
 		window.location.href = '/login'
 	}
 	else {
+		const orderAPI = "http://localhost:8080/api/order";
+	
+		async function getOrderData() {
+	 		const orderAPIwithIdUser = `${orderAPI}/room/${roomID}`;
+	  		try {
+    			const response = await fetch(orderAPIwithIdUser);
+    			const data = await response.json();
+	    return data;
+	  } catch (error) {
+	    	console.error(error);
+	  }
+	}
+	
+	getOrderData().then(data => {
+		function getBookedDates(data) {
+		  const bookedDates = [];
+		  data.forEach(({ datein, dateout }) => {
+		    const startDate = new Date(datein);
+		    const endDate = new Date(dateout);
+		    const days = Math.floor((endDate - startDate) / (24 * 60 * 60 * 1000));
+		    for (let i = 0; i <= days; i++) {
+		      const date = new Date(startDate);
+		      date.setDate(startDate.getDate() + i);
+		      bookedDates.push({
+		        year: date.getFullYear(),
+		        month: date.getMonth() + 1,
+		        day: date.getDate()
+		      });
+		    }
+		  });
+		  return bookedDates;
+		}
+		
+		const bookedDates = getBookedDates(data);	
+		
+		function checkBookingConflict(bookedDates, startDate, endDate) {
+			
+		  const conflictDates = [];
+		  const days = Math.floor((endDate - startDate) / (24 * 60 * 60 * 1000));
+		  for (let i = 0; i <= days; i++) {
+		    const date = new Date(startDate);
+		    date.setDate(startDate.getDate() + i);
+		    const year = date.getFullYear();
+		    const month = date.getMonth() + 1;
+		    const day = date.getDate();
+		    const conflict = bookedDates.find(bookedDate => {
+		      return bookedDate.year === year && bookedDate.month === month && bookedDate.day === day;
+		    });
+		    if (conflict) {
+		      conflictDates.push(conflict);
+		    }
+		  }
+		  return conflictDates;
+		}
+		
+		datein.addEventListener('input', () => {		
+		  const startDate = new Date(datein.value);
+		  const endDate = new Date(dateout.value);
+		  if (startDate && endDate) {
+		    const conflicts = checkBookingConflict(bookedDates, startDate, endDate);
+		    if (conflicts.length > 0) {
+		      const conflictDates = conflicts.map(conflict => `${conflict.day}/${conflict.month}`).join(', ');
+		      const message = `Trong khoảng thời gian từ ngày ${startDate.toLocaleDateString()} đến ngày ${endDate.toLocaleDateString()}, đã có người đặt phòng vào các ngày: ${conflictDates}`;
+		      alert(message);
+				datein.value = null;
+				dateout.value = null;
+		    }
+		  }
+		});
+		
+		dateout.addEventListener('input', () => {
+		  const startDate = new Date(datein.value);
+		  const endDate = new Date(dateout.value);
+		  if (startDate && endDate) {
+		    const conflicts = checkBookingConflict(bookedDates, startDate, endDate);
+		    if (conflicts.length > 0) {
+		       const conflictDates = conflicts.map(conflict => `${conflict.day}/${conflict.month}`).join(', ');
+		      const message = `Trong khoảng thời gian từ ngày ${startDate.toLocaleDateString()} đến ngày ${endDate.toLocaleDateString()}, đã có người đặt phòng vào các ngày: ${conflictDates}`;
+		      alert(message);
+				datein.value = null;
+				dateout.value = null;
+		    }
+		  }
+		});
+	})
+		
 		//edit content in popup
 		ImgRoomOrder.src = imgRoom;
 		NameRoomOrder.innerHTML = name;
@@ -197,25 +301,20 @@ const fcOrder = (roomID,name,des, price, imgRoom) => {
 			const endDate = new Date(dateout.value);
 			const timeLive = endDate.getTime() - startDate.getTime();
 			const dayCount = Math.ceil(timeLive/(1000 * 60 * 60 * 24));
-			const roomCount = numberRoom.value;
+			const roomCount = 1;
 			const totalPrice = roomCount * dayCount * price;
 			dpTotalPrice.innerHTML = totalPrice ? totalPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) : '0 đ';
 			return totalPrice;
 		}
 		
 		datein.addEventListener('change', function() {
-		  if (datein.value && dateout.value && numberRoom.value) {
+		  if (datein.value && dateout.value) {
 		    calculatePrice();
 		  }
 		});
 		
 		dateout.addEventListener('change', function() {
-		  if (datein.value && dateout.value && numberRoom.value) {
-		    calculatePrice();
-		  }
-		});
-		numberRoom.addEventListener('change', function() {
-		  if (datein.value && dateout.value && numberRoom.value) {
+		  if (datein.value && dateout.value) {
 		    calculatePrice();
 		  }
 		});	
@@ -226,13 +325,14 @@ const fcOrder = (roomID,name,des, price, imgRoom) => {
 		//handle when click confirm
 		confirm.onclick = async() => {
 			const orderData = {
-				quantity : numberRoom.value,
+				quantity : 1,
 				datein : datein.value,
 				dateout : dateout.value,
 				totalPrice: calculatePrice(),
 				user_id: getCookie("id"),
 				room_id: roomID
 			};
+			
 			
 			const fetchOptions = {
 				method: "POST",
@@ -243,17 +343,22 @@ const fcOrder = (roomID,name,des, price, imgRoom) => {
 				body: JSON.stringify(orderData),
 			};
 			
+			
 			const url = "http://localhost:8080/api/order";
-			if(validateOrderData(orderData)) {
+			
+			const check = validateOrderData(orderData); 
+			if( check === true) {
 				const response = await fetch(url, fetchOptions)
 				if (!response.ok) {
 				}
 				else {
+					datein.value=null;
+					dateout.value=null;
 					alert("đặt phòng thành công")
 					fcOrderClose();
 				}
 			} else {
-				alert("Vui lòng điền đầy đủ thông tin đặt phòng")
+				alert(check)
 			}
 			
 		}
@@ -276,13 +381,6 @@ const btnOrderMore = document.querySelector(".order_form_wantadditem");
 btnOrderMore.onclick = () => {
 	fcOrderClose();
 }
-
-
-
-	
-
-
-	
 
 
 start();
