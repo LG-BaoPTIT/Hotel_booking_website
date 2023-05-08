@@ -36,5 +36,7 @@ public interface RoomService {
 	public RoomEntity toEntity(RoomDTO dto);
 	
 	public RoomDTO toDTO(RoomEntity entity);
+	
+	
 
 }

@@ -100,6 +100,6 @@ public class RoomServiceImpl implements RoomService {
 		dto.setStatus(entity.getStatus());
 		return dto;
 	}
-	
-	
+
+
 }
