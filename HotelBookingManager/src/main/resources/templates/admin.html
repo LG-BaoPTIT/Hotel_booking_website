@@ -100,7 +100,7 @@
 											Xếp hạng sao <input type="text" name="rate" placeholder="xếp hạng">
 											Giá<input type="text" name="price" placeholder="Giá">
 											Ảnh <input type="file" name="img" placeholder="Ảnh">
-											<button type="submit">upload</button>
+											<button type="submit">Thêm</button>
 										</form>
 
 
@@ -122,40 +122,19 @@
 							<div class="manage_header_addroom_form js-form_add2 ">
 								<div class="addroom_form addroom_form2">
 									<div class="manage_header_addroom_form_front">
-										<div class="addroom_form_item">
-											<p>Tên phòng</p>
-											<input id="roomname" type="text" placeholder="Tên phòng" required>
-										</div>
-										<div class="addroom_form_item">
-											<p>Mô tả phòng</p>
-											<input id="description" type="text" placeholder="Mô tả phòng">
-										</div>
-										<div class="addroom_form_item">
-											<p>Xếp hạng sao</p>
-											<input id="rating" type="text" placeholder="xếp hạng">
-										</div>
-										<div class="addroom_form_item">
-											<p>Giá</p>
-											<input id="price" type="text" placeholder="Giá">
-										</div>
-										<div class="add_room_form_item-addimg">
-											<div class="addimg_in">
-												<i class="fa-solid fa-image"></i>
-												<div class="imginput">
-													<input type="file" name="file" id="file" class="inputfile"
-														data-multiple-caption="{count} files selected" multiple />
-													<label class="fileimg" for="file">Chọn file</label>
-												</div>
-											</div>
-										</div>
+										<form id="updateRoom" enctype="multipart/form-data">
+											Tên phòng<input type="text" name="name1" placeholder="Tên phòng">
+											Mô tả Phòng<input type="text" name="description1" placeholder="Mô tả phòng">
+											Xếp hạng sao <input type="text" name="rate1" placeholder="xếp hạng">
+											Giá<input type="text" name="price1" placeholder="Giá">
+											Ảnh <input type="file" name="img1" placeholder="Ảnh">
+											<button type="submit">Cập nhật</button>
+										</form>
+				
+										
 									</div>
 									<div class="manage_header_addroom_form_back">
-										<a href="#">
-											<div class="addroom_form_submit_add" onclick="updateRoom()">
-												<p>Sửa</p>
-												<i class="fa-solid fa-plus"></i>
-											</div>
-										</a>
+										
 										<a href="#">
 											<div class="addroom_form_submit_cancel js-cancelbuttonBtn">
 												<p>Đóng</p>

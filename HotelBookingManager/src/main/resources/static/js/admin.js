@@ -10,7 +10,13 @@ const updateform = document.querySelector('.js-form_update')
 function Opentab() {
 	addform.classList.add('form-active')
 }
-function Opentab2(roomid) {
+function Opentab2(roomid,name,description,rate,price) {
+	
+	const nameValue = document.querySelector('input[name="name1"]').value = name;
+	const descriptionValue = document.querySelector('input[name="description1"]').value=description;
+	const rateValue = document.querySelector('input[name="rate1"]').value=rate;
+	const priceValue = document.querySelector('input[name="price1"]').value=price;
+
 	localStorage.setItem('roomUpdateId', roomid);
 	addform2.classList.add('form-active')
 
@@ -153,7 +159,7 @@ function renderHotels(hotels) {
                         <div class="content_manage_container">
 						<div class="manage_content_item">
 							<div class="manage_content_item_left">
-								<img src="${ hotel.imgLink}">
+								<img src="${hotel.imgLink}">
 								<div class="content_item_left_infomation">
 									<p class="item_left_information_1">${hotel.name}</p>
 									<p class="item_left_information_2"> 
@@ -187,8 +193,9 @@ function renderHotels(hotels) {
 							<div class="manage_content_item_right">
 								<div class="item_right_icon">
 						
-									<i class="fa-solid fa-pen-to-square" onclick='Opentab2(${hotel.id})'></i>
-									<button class="fa-solid fa-trash" onclick='deleteRoom(${hotel.id})' ></button>
+									<i class="fa-solid fa-pen-to-square" onclick='Opentab2(${hotel.id},"${hotel.name}","${hotel.description}",${hotel.rate},${hotel.price})'></i>
+									<button class="fa-solid fa-trash" onclick='deleteRoom(${hotel.id}, "${hotel.imgLink}")'></button>
+
 									
 									
 								</div>
@@ -205,7 +212,51 @@ function renderHotels(hotels) {
 }
 //sua phong
 const apiUpdateRoom = "http://localhost:8080/api/rooms/update";
-async function updateRoom() {
+const formUpdate = document.getElementById('updateRoom');
+updateRoom.addEventListener('submit', async (event) => {
+	event.preventDefault();
+
+	const formData = new FormData();
+	
+	const nameValue = document.querySelector('input[name="name1"]').value;
+	const descriptionValue = document.querySelector('input[name="description1"]').value;
+	const rateValue = document.querySelector('input[name="rate1"]').value;
+	const priceValue = document.querySelector('input[name="price1"]').value;
+	const fileInput = document.querySelector('input[name="img1"]');
+
+	formData.append('id', localStorage.getItem('roomUpdateId'));
+	
+	
+	if(fileInput.files[0]==undefined){
+		
+	}
+	else{
+		formData.append('image', fileInput.files[0]);
+	}
+	
+	console.log(fileInput.files[0]);
+	formData.append('name', nameValue);
+	formData.append('description',descriptionValue);
+	formData.append('rate', rateValue);
+	formData.append('price', priceValue);
+	formData.append('status', '0');
+	console.log(formData);
+	const response = await fetch(apiUpdateRoom, {
+		method: 'PUT',
+		body: formData
+	});
+		if(response.ok){
+		getHotels();
+		clearInputs()
+		alert('Sửa phòng thành công!');
+	}
+	else{
+		alert('Sửa phòng không thành công!');
+	}
+	
+	
+});
+/*async function updateRoom() {
 	const name = document.getElementById('roomname').value;
 	const description = document.getElementById('description').value;
 	const rating = document.getElementById('rating').value;
@@ -240,7 +291,7 @@ async function updateRoom() {
 		alert('Cập nhật thất bại!');
 	}
 
-}
+}*/
 /// Thêm phòng
 const apiRoom = "/api/rooms";
 /*async function addroom() {
@@ -306,6 +357,14 @@ form.addEventListener('submit', async (event) => {
 		method: 'POST',
 		body: formData
 	});
+		if(response.ok){
+		getHotels();
+		clearInputs()
+		alert('Thêm phòng thành công!');
+	}
+	else{
+		alert('Thêm phòng không thành công!');
+	}
 	
 	
 });
@@ -333,9 +392,11 @@ function validateForm() {
 }
 /// xóa phòng
 const apiDeleteRoom = "http://localhost:8080/api/rooms/delete";
-async function deleteRoom(id) {
+async function deleteRoom(id,imgLink) {
 	const formData = {
-		id: id
+		id: id,
+		imgLink: imgLink
+		
 	}
 	const fetchOptions = {
 		method: "DELETE",
