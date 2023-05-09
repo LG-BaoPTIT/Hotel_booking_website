@@ -301,18 +301,19 @@ content: '';
 }
 .add_room_form_item-addimg{
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+   
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     height: 66px;
     width: 100px;
-    margin-top:12px;
+    margin-top:48px;
 }
 .addimg_in{
     width: 86%;
 }
+
 .addimg_in span{
     font-size: 14px;
 }   
@@ -323,6 +324,9 @@ content: '';
 }
 .addimg_in i{
 	margin-left: 33px;
+	color: #ffecc9;
+    position: absolute;
+    right: 2px;
 }
 fileimg{
 	font-size: 16px;
@@ -341,6 +345,9 @@ fileimg{
 .manage_header_addroom_form_back a{
     color:white;
 }
+.img-active{
+	display: block;
+}
 .addroom_form_submit_add{
     background-color: var(--primary-color);
     width: 72px;
@@ -348,9 +355,23 @@ fileimg{
     border-radius: 4px;
     text-align: center;
     margin-right: 8px;
+    font-size: 16px;
+    border: none;
+    color: white;
+}
+#img-preview{
+	width: 90px;
+	height: 84px;
+	
+}
+.preview{
+	
 }
 .fa-plus{
     font-size: 16px;
+}
+.addimg_in-front{
+	position: relative;
 }
 .addroom_form_submit_add p{
     display: inline-block;
@@ -370,6 +391,9 @@ fileimg{
     text-align: center;
     margin-right: 8px;
 
+}
+.img-preview{
+	border:3px solid var(--primary-color);
 }
 .fa-xmark{
     font-size: 16px;
@@ -668,4 +692,7 @@ fileimg{
 .inputfile:focus + label,
 .inputfile + label:hover {
     opacity: 0.8;
+}
+.form-add{
+	display: flex;
 }

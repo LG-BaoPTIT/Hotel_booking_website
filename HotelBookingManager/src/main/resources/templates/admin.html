@@ -91,60 +91,116 @@
 							</button>
 							<!-- -----------------------------------------------------form add room ------------------------------------------------------ -->
 							<div class="manage_header_addroom_form js-form_add">
+								<form id="upload-img" enctype="multipart/form-data" class="form-add">
+									<div class="addroom_form addroom_form1">
 
-								<div class="addroom_form addroom_form1">
-									<div class="manage_header_addroom_form_front">
-										<form id="upload-img" enctype="multipart/form-data">
-											Tên phòng<input type="text" name="name" placeholder="Tên phòng">
-											Mô tả Phòng<input type="text" name="description" placeholder="Mô tả phòng">
-											Xếp hạng sao <input type="text" name="rate" placeholder="xếp hạng">
-											Giá<input type="text" name="price" placeholder="Giá">
-											Ảnh <input type="file" name="img" placeholder="Ảnh">
-											<button type="submit">Thêm</button>
-										</form>
+										<div class="manage_header_addroom_form_front">
 
+											<div class="addroom_form_item">
+												<p>Tên phòng </p>
+												<input type="text" name="name" placeholder="Tên phòng">
+											</div>
+											<div class="addroom_form_item">
+												<p>Mô tả Phòng</p>
+												<input type="text" name="description" placeholder="Mô tả phòng">
 
-									</div>
-									<div class="manage_header_addroom_form_back">
-
-										<a href="#">
-											<div class="addroom_form_submit_cancel js-cancelbutton">
-												<p>Đóng</p>
-												<i class="fa-solid fa-xmark"></i>
 											</div>
 
-										</a>
-										<p class="alert"></p>
+											<div class="addroom_form_item">
+												<p>Xếp hạng sao </p>
+												<input type="text" name="rate" placeholder="xếp hạng">
+
+											</div>
+
+											<div class="addroom_form_item">
+												<p>Giá</p>
+												<input type="text" name="price" placeholder="Giá">
+											</div>
+
+
+											<div class="add_room_form_item-addimg">
+												<div class="addimg_in ">
+													<!--<i class="fa-solid fa-image"></i>-->
+													<div class="addimg_in-front">
+														<div class="preview">
+															<img id="img-preview " class="img" style="width: 100%;" />
+															<input accept="image/*" class="form-control mb-4 inputfile inputImg"
+																type="file" name="img" placeholder="Ảnh" id="file">
+															<label for="file">Chọn ảnh</label>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="manage_header_addroom_form_back">
+											<button type="submit" class="addroom_form_submit_add">Thêm</button>
+											<a href="#">
+												<div class="addroom_form_submit_cancel js-cancelbutton">
+													<p>Đóng</p>
+													<i class="fa-solid fa-xmark"></i>
+												</div>
+
+											</a>
+											<p class="alert"></p>
+										</div>
+
 									</div>
-								</div>
+								</form>
 							</div>
 							<!-- -----------------------------------------------------form update romm ------------------------------------------------------ -->
 							<div class="manage_header_addroom_form js-form_add2 ">
-								<div class="addroom_form addroom_form2">
-									<div class="manage_header_addroom_form_front">
-										<form id="updateRoom" enctype="multipart/form-data">
-											Tên phòng<input type="text" name="name1" placeholder="Tên phòng">
-											Mô tả Phòng<input type="text" name="description1" placeholder="Mô tả phòng">
-											Xếp hạng sao <input type="text" name="rate1" placeholder="xếp hạng">
-											Giá<input type="text" name="price1" placeholder="Giá">
-											Ảnh <input type="file" name="img1" placeholder="Ảnh">
-											<button type="submit">Cập nhật</button>
-										</form>
-				
-										
-									</div>
-									<div class="manage_header_addroom_form_back">
-										
-										<a href="#">
-											<div class="addroom_form_submit_cancel js-cancelbuttonBtn">
-												<p>Đóng</p>
-												<i class="fa-solid fa-xmark"></i>
+								<form id="updateRoom" enctype="multipart/form-data">
+									<div class="addroom_form addroom_form2">
+										<div class="manage_header_addroom_form_front">
+											<div class="addroom_form_item">
+												<p>Tên phòng</p>
+
+												<input type="text" name="name1" placeholder="Tên phòng">
+											</div>
+											<div class="addroom_form_item">
+												<p>Mô tả Phòng</p>
+												<input type="text" name="description1" placeholder="Mô tả phòng">
+											</div>
+											<div class="addroom_form_item">
+												<p>Xếp hạng sao</p>
+												<input type="text" name="rate1" placeholder="xếp hạng">
+											</div>
+											<div class="addroom_form_item">
+												<p>Giá</p>
+												<input type="text" name="price1" placeholder="Giá">
+
 											</div>
 
-										</a>
-										<p class="alert"></p>
+											<div class="add_room_form_item-addimg">
+
+												<div class="addimg_in ">
+													<!--<i class="fa-solid fa-image"></i>-->
+													<div class="addimg_in-front">
+														<div class="preview">
+															<img id="img-preview" class="hihi" src="" />
+															<input accept="image/*" class="form-control mb-4 inputfile"
+																type="file" name="img1" placeholder="Ảnh" id="file">
+															<label for="file">Chọn ảnh</label>
+														</div>
+													</div>
+													<div class="preview js-outimg"></div>
+
+												</div>
+											</div>
+										</div>
+										<div class="manage_header_addroom_form_back">
+											<button type="submit" class="addroom_form_submit_add">Cập nhật</button>
+											<a href="#">
+												<div class="addroom_form_submit_cancel js-cancelbuttonBtn">
+													<p>Đóng</p>
+													<i class="fa-solid fa-xmark"></i>
+												</div>
+											</a>
+											<p class="alert"></p>
+										</div>
 									</div>
-								</div>
+								</form>
 							</div>
 						</div>
 					</div>

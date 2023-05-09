@@ -7,16 +7,29 @@ const cancel2 = document.querySelector('.js-cancelbutton2')
 const updates = document.querySelectorAll('.js-updatebutton')
 const updateform = document.querySelector('.js-form_update')
 
+const addimg = document.querySelector('.js-outimg')
+const upimg = document.querySelector('.js-upimg')
+
+function Openimg() {
+    addimg.classList.add('img-active')
+}
+function Offimg() {
+    addimg.classList.remove('img-active')
+}
+
 function Opentab() {
 	addform.classList.add('form-active')
 }
-function Opentab2(roomid,name,description,rate,price) {
+function Opentab2(roomid,name,description,rate,price,imgLink) {
 	
 	const nameValue = document.querySelector('input[name="name1"]').value = name;
 	const descriptionValue = document.querySelector('input[name="description1"]').value=description;
 	const rateValue = document.querySelector('input[name="rate1"]').value=rate;
 	const priceValue = document.querySelector('input[name="price1"]').value=price;
-
+	const img = document.querySelector('.hihi');
+	img.src=imgLink.replace('img', '\\img\\');
+	
+	
 	localStorage.setItem('roomUpdateId', roomid);
 	addform2.classList.add('form-active')
 
@@ -150,7 +163,7 @@ function getHotels() {
 			console.log(err);
 		})
 }
-//render ra danh sách khách sạn;
+//render ra danh sách phong;
 function renderHotels(hotels) {
 	var listHotelBlock = document.querySelector('.content_manage_content');
 
@@ -193,7 +206,7 @@ function renderHotels(hotels) {
 							<div class="manage_content_item_right">
 								<div class="item_right_icon">
 						
-									<i class="fa-solid fa-pen-to-square" onclick='Opentab2(${hotel.id},"${hotel.name}","${hotel.description}",${hotel.rate},${hotel.price})'></i>
+									<i class="fa-solid fa-pen-to-square" onclick=' Opentab2(${hotel.id},"${hotel.name}","${hotel.description}",${hotel.rate},${hotel.price},"${hotel.imgLink}") '></i>
 									<button class="fa-solid fa-trash" onclick='deleteRoom(${hotel.id}, "${hotel.imgLink}")'></button>
 
 									
@@ -445,6 +458,49 @@ Array.prototype.forEach.call(inputs, function(input) {
 			label.innerHTML = labelVal;
 	});
 });
+
+const input = document.querySelector('.inputImg');
+const image = document.querySelector('.img');
+
+input.addEventListener('change', (e) => {
+    if (e.target.files.length) {
+        const src = URL.createObjectURL(e.target.files[0]);
+        image.src = src;
+    }
+});
+
+
+
+/*const ipnFileElement = document.querySelector('input[name="img"]')
+const resultElement = document.querySelector('.preview')
+const validImageTypes = ['image/gif', 'image/jpeg', 'image/png']
+
+ipnFileElement.addEventListener('change', function(e) {
+  const files = e.target.files
+  const file = files[0]
+  const fileType = file['type']
+
+  if (!validImageTypes.includes(fileType)) {
+    resultElement.insertAdjacentHTML(
+      'beforeend',
+      '<span class="preview-img">Chọn ảnh </span>'
+    )
+    return
+  }
+
+  const fileReader = new FileReader()
+  fileReader.readAsDataURL(file)
+
+  fileReader.onload = function() {
+    const url = fileReader.result
+    resultElement.insertAdjacentHTML(
+      'beforeend',
+      `<img src="${url}" alt="${file.name}" class="preview-img" />
+      <i class="fa-solid fa-xmark "  onclick="Openimg()"></i>`
+    )
+    
+  }
+})*/
 
 start();
 ///

@@ -131,13 +131,16 @@ function renderHotels(hotels){
 		const name = hotel.name;
 		const des = hotel.description
 		const price = hotel.price;
-		const image = hotel.imgLink;
+		const image = hotel.imgLink.replace('img', '\\img\\');
 		const status = hotel.status;
 		const rate = hotel.rate;
 		const brickPrice = Number(hotel.price) * 1.2;
+		
         return `
         <li class="item">
-       			<div class="roomPic" style="background-image: url(${hotel.imgLink}) "></div>
+       			<div class="roomPic" style="background-image: url('${image}')">
+    
+       			</div>
            <div class="userReply">
                   <div class="rating">
                     ${function loop(){
