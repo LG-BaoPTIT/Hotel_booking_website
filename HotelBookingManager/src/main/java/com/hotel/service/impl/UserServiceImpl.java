@@ -102,6 +102,7 @@ public class UserServiceImpl implements UserService {
 		entity.setName(dto.getName());
 		entity.setUsername(dto.getUsername());
 		entity.setPassword(dto.getPassword());
+		entity.setAddress(dto.getAddress());
 		entity.setPhone(dto.getPhone());
 		entity.setRole(dto.getRole());
 		return entity;
@@ -112,6 +113,7 @@ public class UserServiceImpl implements UserService {
 		UserDTO dto = new UserDTO();
 		dto.setId(entity.getId());
 		dto.setName(entity.getName());
+		dto.setAddress(entity.getAddress());
 		dto.setUsername(entity.getUsername());
 		dto.setPassword(entity.getPassword());
 		dto.setPhone(entity.getPhone());

@@ -26,7 +26,7 @@ function Opentab1(id, name, username, address, phone, role) {
 	const tenTaiKhoanInput = document.querySelector('input[name="username"]');
 	tenTaiKhoanInput.value = username;
 	
-	
+	console.log(address)
 
 	// Thay đổi giá trị của thẻ input Địa chỉ
 	const diaChiInput = document.querySelector('input[name="address"]');
