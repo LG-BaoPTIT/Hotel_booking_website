@@ -17,7 +17,30 @@ function Closetab1() {
 	localStorage.removeItem('accountUpdateId');
 	updateform.classList.remove('form-active')
 }
-function Opentab1(id) {
+function Opentab1(id, name, username, password, address, phone, role) {
+	//Thay đổi giá trị của thẻ input Họ và tên
+	const hoVaTenInput = document.querySelector('input[name="name"]');
+	hoVaTenInput.value = phone;
+	
+	// Thay đổi giá trị của thẻ input Tên tài khoản
+	const tenTaiKhoanInput = document.querySelector('input[name="username"]');
+	tenTaiKhoanInput.value = username;
+	console.log(tenTaiKhoanInput.value)
+	// Thay đổi giá trị của thẻ input Mật khẩu
+	const matKhauInput = document.querySelector('input[name="password"]');
+	matKhauInput.value =password;
+
+	// Thay đổi giá trị của thẻ input Địa chỉ
+	const diaChiInput = document.querySelector('input[name="address"]');
+	diaChiInput.value = address;
+
+	// Thay đổi giá trị của thẻ input Số điện thoại
+	const soDienThoaiInput = document.querySelector('input[name="phone"]');
+	soDienThoaiInput.value = phone;
+	
+	const roleInput = document.querySelector('input[name="role"]');
+	roleInput.value = role.toString();
+	
 	localStorage.setItem('accountUpdateId', id);
 	updateform.classList.add('form-active')
 }
@@ -144,7 +167,8 @@ function renderAccounts(accounts) {
                                 </div>
                                 <div class="item_right_icon account_icon">
                                     <div class="item_right_icon_box">
-                                        <i class="fa-solid fa-pen-to-square js-updatebutton"   onclick='Opentab1(${account.id})'></i>
+                                        <i class="fa-solid fa-pen-to-square js-updatebutton"   onclick='Opentab1(${account.id},"${account.name}","${account.username}"
+                                        ,"${account.password}","${account.address}","${account.phone}",${account.role})'></i>
                                         <i class="fa-solid fa-trash"style="cursor: pointer;" onclick='deleteAccount(${account.id})'  ></i>
                                     </div>
                                 </div>
@@ -190,10 +214,10 @@ async function updateAccount() {
 		password: matKhau,
 		address: diaChi,
 		phone: soDienThoai,
-		role:userRoleValue
+		role: userRoleValue
 
 	};
-	
+
 	const fetchOptions = {
 		method: "PUT",
 		headers: {
@@ -206,7 +230,7 @@ async function updateAccount() {
 	const response = await fetch(apiUpdateRoom, fetchOptions);
 	if (response.ok) {
 		getAccount();
-		 clearInputValues()
+		clearInputValues()
 		alert('Cập nhật thành công!');
 	}
 	else {
@@ -300,11 +324,11 @@ async function addAccount() {
 
 }
 function clearInputValues() {
-  const inputElements = document.querySelectorAll('input'); // Lấy tất cả các ô input
+	const inputElements = document.querySelectorAll('input'); // Lấy tất cả các ô input
 
-  for (const inputElement of inputElements) {
-    inputElement.value = ''; // Xóa giá trị của mỗi ô input
-  }
+	for (const inputElement of inputElements) {
+		inputElement.value = ''; // Xóa giá trị của mỗi ô input
+	}
 }
 function clearInputs() {
 	document.querySelector('input[placeholder="Họ và tên"]').value = '';

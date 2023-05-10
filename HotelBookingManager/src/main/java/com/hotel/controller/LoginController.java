@@ -48,6 +48,7 @@ public class LoginController {
 	    	UserEntity user = entity.get();
 	        session.setAttribute("username", username);
 	        session.setAttribute("id", user.getId());
+	        session.setAttribute("role", user.getRole());
 	        ApiResponse response = new ApiResponse(true, "Đăng nhập thành công",user.getName());
 	        System.out.println("ok");
 	        
