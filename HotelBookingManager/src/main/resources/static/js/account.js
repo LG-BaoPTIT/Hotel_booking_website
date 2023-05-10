@@ -20,7 +20,7 @@ function Closetab1() {
 function Opentab1(id, name, username, password, address, phone, role) {
 	//Thay đổi giá trị của thẻ input Họ và tên
 	const hoVaTenInput = document.querySelector('input[name="name"]');
-	hoVaTenInput.value = phone;
+	hoVaTenInput.value = name;
 	
 	// Thay đổi giá trị của thẻ input Tên tài khoản
 	const tenTaiKhoanInput = document.querySelector('input[name="username"]');
