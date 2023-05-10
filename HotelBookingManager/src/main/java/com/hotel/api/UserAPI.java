@@ -71,6 +71,9 @@ public class UserAPI {
 	@ResponseBody
 	public ResponseEntity<UserEntity> updateUser(@RequestBody UserDTO model) {
 		try {
+			String passw = model.getPassword();
+			model.setPassword(AES.encrypt(passw, "Aa123!@"));
+			Systr
 			UserEntity result =userService.save(userService.toEntity(model));
 			return ResponseEntity.ok(result);
 		}catch(RuntimeException ex) {

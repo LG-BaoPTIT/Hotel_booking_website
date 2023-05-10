@@ -17,7 +17,7 @@ function Closetab1() {
 	localStorage.removeItem('accountUpdateId');
 	updateform.classList.remove('form-active')
 }
-function Opentab1(id, name, username, password, address, phone, role) {
+function Opentab1(id, name, username, address, phone, role) {
 	//Thay đổi giá trị của thẻ input Họ và tên
 	const hoVaTenInput = document.querySelector('input[name="name"]');
 	hoVaTenInput.value = name;
@@ -25,10 +25,8 @@ function Opentab1(id, name, username, password, address, phone, role) {
 	// Thay đổi giá trị của thẻ input Tên tài khoản
 	const tenTaiKhoanInput = document.querySelector('input[name="username"]');
 	tenTaiKhoanInput.value = username;
-	console.log(tenTaiKhoanInput.value)
-	// Thay đổi giá trị của thẻ input Mật khẩu
-	const matKhauInput = document.querySelector('input[name="password"]');
-	matKhauInput.value =password;
+	
+	
 
 	// Thay đổi giá trị của thẻ input Địa chỉ
 	const diaChiInput = document.querySelector('input[name="address"]');
@@ -168,7 +166,7 @@ function renderAccounts(accounts) {
                                 <div class="item_right_icon account_icon">
                                     <div class="item_right_icon_box">
                                         <i class="fa-solid fa-pen-to-square js-updatebutton"   onclick='Opentab1(${account.id},"${account.name}","${account.username}"
-                                        ,"${account.password}","${account.address}","${account.phone}",${account.role})'></i>
+                                        ,"${account.address}","${account.phone}",${account.role})'></i>
                                         <i class="fa-solid fa-trash"style="cursor: pointer;" onclick='deleteAccount(${account.id})'  ></i>
                                     </div>
                                 </div>
@@ -191,7 +189,7 @@ async function updateAccount() {
 	const tenTaiKhoan = document.querySelector('input[placeholder="Nhập tên tài khoản"]').value;
 
 	// Lấy giá trị từ ô input "Mật khẩu"
-	const matKhau = document.querySelector('input[placeholder="Thanh toán bằng"]').value;
+	const matKhau = document.querySelector('input[placeholder="Mật khẩu"]').value;
 
 	// Lấy giá trị từ ô input "Địa chỉ"
 	const diaChi = document.querySelector('input[placeholder="Địa chỉ"]').value;
