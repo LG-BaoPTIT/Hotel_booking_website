@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hotel.api.ApiResponse;
 import com.hotel.dto.UserDTO;
+import com.hotel.encrypt.AES;
 import com.hotel.entities.UserEntity;
 import com.hotel.service.UserService;
 
@@ -28,6 +29,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("")
 public class LoginController {
+	
 	@Autowired
 	UserService userService;
 	
@@ -41,9 +43,9 @@ public class LoginController {
 			HttpSession session,ModelMap model, HttpServletResponse respon) {
 	    String username = loginRequest.getUsername();
 	    String password = loginRequest.getPassword();
-	    
+  
 	    // xử lý login
-	    if(userService.checkLogin(username, password)) { 
+	    if(userService.checkLogin(username, AES.encrypt(password, "Aa123!@"))) { 
 	    	Optional<UserEntity> entity = userService.findByUsername(username);
 	    	UserEntity user = entity.get();
 	        session.setAttribute("username", username);

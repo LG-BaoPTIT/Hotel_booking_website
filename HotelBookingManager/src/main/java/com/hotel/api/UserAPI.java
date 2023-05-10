@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hotel.dto.*;
+import com.hotel.encrypt.AES;
 import com.hotel.entities.UserEntity;
 import com.hotel.service.UserService;
 
@@ -43,6 +44,9 @@ public class UserAPI {
 	@PostMapping(value = "/registeruser",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> addUser(@RequestBody UserDTO model){
 		String username = model.getUsername();
+		String pass  = model.getPassword();
+		model.setPassword(AES.encrypt(pass, "Aa123!@"));
+		
 		System.out.print(username);
 		if(userService.existsByUsername(username)) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse(false,"Tài khoản đã tồn tại",null));
